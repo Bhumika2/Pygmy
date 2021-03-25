@@ -32,33 +32,21 @@
 
 package controllers;
 
+import com.google.inject.Singleton;
+import models.BuyRequest;
+import models.BuyResponse;
 import ninja.Result;
 import ninja.Results;
-
-import com.google.inject.Singleton;
+import service.BuyItem;
 
 
 @Singleton
 public class ApplicationController {
 
-    public Result index() {
-
-        return Results.html();
-
+    public Result buy(BuyRequest buyObj) {
+        BuyItem buyItem = new BuyItem();
+        BuyResponse buyResponse = buyItem.buy(buyObj);
+        return Results.json().render(buyResponse);
     }
-    
-    public Result helloWorldJson() {
-        
-        SimplePojo simplePojo = new SimplePojo();
-        simplePojo.content = "Hello World! Hello Json!";
 
-        return Results.json().render(simplePojo);
-
-    }
-    
-    public static class SimplePojo {
-
-        public String content;
-        
-    }
 }

@@ -1,3 +1,6 @@
 .idea/*
 target/
-
+buy/.idea/*
+order/.idea/*
+.DS_Store
+*.iml
