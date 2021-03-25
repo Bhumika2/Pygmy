@@ -32,22 +32,38 @@
 
 package controllers;
 
-import com.google.inject.Singleton;
-import models.BuyRequest;
-import models.BuyResponse;
+import models.OrderRequest;
+import models.OrderResponse;
 import ninja.Result;
 import ninja.Results;
-import service.BuyItem;
+
+import com.google.inject.Singleton;
+import ninja.params.PathParam;
+import service.Catalogue;
+import service.Order;
 
 
 @Singleton
 public class ApplicationController {
 
-    public Result buy(BuyRequest buyObj) {
-        System.out.println("Buy request received!");
-        BuyItem buyItem = new BuyItem();
-        BuyResponse buyResponse = buyItem.buy(buyObj);
-        return Results.json().render(buyResponse);
+    public Result search(@PathParam("topic") String topic) {
+        Catalogue catalogue = new Catalogue();
+        String searchMsg = catalogue.searchTopic(topic);
+        return Results.json().render(searchMsg);
+
     }
 
+    public Result lookup(@PathParam("bookNumber") Integer bookNumber) {
+        Catalogue catalogue = new Catalogue();
+        String lookupMsg = catalogue.lookupBook(bookNumber);
+        return Results.json().render(lookupMsg);
+
+    }
+
+    public Result buy(OrderRequest orderReq) {
+        System.out.println("Buy request received frontend!");
+        Order order = new Order();
+        OrderResponse orderResponse = order.buyBook(orderReq);
+        return Results.json().render(orderResponse);
+    }
 }

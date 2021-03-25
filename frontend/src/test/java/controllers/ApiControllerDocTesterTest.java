@@ -32,22 +32,47 @@
 
 package controllers;
 
-import com.google.inject.Singleton;
-import models.BuyRequest;
-import models.BuyResponse;
-import ninja.Result;
-import ninja.Results;
-import service.BuyItem;
 
+import org.junit.Test;
 
-@Singleton
-public class ApplicationController {
+import ninja.NinjaDocTester;
+import org.doctester.testbrowser.Request;
+import org.doctester.testbrowser.Response;
+import org.hamcrest.CoreMatchers;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
 
-    public Result buy(BuyRequest buyObj) {
-        System.out.println("Buy request received!");
-        BuyItem buyItem = new BuyItem();
-        BuyResponse buyResponse = buyItem.buy(buyObj);
-        return Results.json().render(buyResponse);
-    }
+public class ApiControllerDocTesterTest extends NinjaDocTester {
+    
+    String URL_INDEX = "/";
+    String URL_HELLO_WORLD_JSON = "/hello_world.json";
+    
+//    @Test
+//    public void testGetIndex() {
+//
+//        Response response = makeRequest(
+//                Request.GET().url(
+//                        testServerUrl().path(URL_INDEX)));
+//
+//        assertThat(response.payload, containsString("Hello World!"));
+//        assertThat(response.payload, containsString("BAM!"));
+//
+//
+//    }
+//
+//    @Test
+//    public void testGetHelloWorldJson() {
+//
+//        Response response = makeRequest(
+//                Request.GET().url(
+//                        testServerUrl().path(URL_HELLO_WORLD_JSON)));
+//
+//        ApplicationController.SimplePojo simplePojo
+//                = response.payloadJsonAs(ApplicationController.SimplePojo.class);
+//
+//        assertThat(simplePojo.content, CoreMatchers.equalTo("Hello World! Hello Json!"));
+//
+//
+//    }
 
 }

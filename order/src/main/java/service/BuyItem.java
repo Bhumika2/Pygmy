@@ -78,7 +78,7 @@ public class BuyItem {
         } catch (Exception e){
             //TODO: error
         }
-        //buyStatus = false;
+        buyStatus = true;
         return buyStatus;
     }
 }
