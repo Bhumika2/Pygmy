@@ -1,5 +1,5 @@
 /**
- * Copyright (C) the original author or authors.
+ * Copyright (C) 2012-2019 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ import controllers.ApplicationController;
 public class Routes implements ApplicationRoutes {
 
     @Override
-    public void init(Router router) {  
-        router.GET().route("/search/{topic}").with(ApplicationController::search);
-        router.GET().route("/lookup/{bookNumber}").with(ApplicationController::lookup);
-        router.POST().route("/buy/{bookNumber}").with(ApplicationController::buy);
+    public void init(Router router) {
+        router.GET().route("/queryBySubject/{topic}").with(ApplicationController::queryBySubject);
+        router.GET().route("/queryByItem/{id}").with(ApplicationController::queryByItem);
+        router.POST().route("/update/{id}").with(ApplicationController::update);
     }
 
 }

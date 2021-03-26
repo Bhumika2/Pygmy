@@ -3,6 +3,7 @@ package models;
 public class Book {
     Integer bookNumber;
     String bookName;
+    String topic;
     String cost;
     Integer count;
 
@@ -21,6 +22,10 @@ public class Book {
     public void setBookName(String bookName) {
         this.bookName = bookName;
     }
+
+    public String getTopic() { return topic; }
+
+    public void setTopic(String topic) { this.topic = topic; }
 
     public String getCost() {
         return cost;

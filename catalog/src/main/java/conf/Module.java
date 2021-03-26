@@ -1,5 +1,5 @@
 /**
- * Copyright (C) the original author or authors.
+ * Copyright (C) 2012-2019 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,17 @@
 
 package conf;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
 
-import ninja.AssetsController;
-import ninja.Router;
-import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
+@Singleton
+public class Module extends AbstractModule {
+    
 
-public class Routes implements ApplicationRoutes {
-
-    @Override
-    public void init(Router router) {  
-        router.GET().route("/search/{topic}").with(ApplicationController::search);
-        router.GET().route("/lookup/{bookNumber}").with(ApplicationController::lookup);
-        router.POST().route("/buy/{bookNumber}").with(ApplicationController::buy);
+    protected void configure() {
+        
+        // bind your injections here!
+        
     }
 
 }

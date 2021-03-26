@@ -1,5 +1,5 @@
 /**
- * Copyright (C) the original author or authors.
+ * Copyright (C) 2012-2019 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +17,14 @@
 
 package conf;
 
+import java.util.List;
+import ninja.Filter;
 
-import ninja.AssetsController;
-import ninja.Router;
-import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
-
-public class Routes implements ApplicationRoutes {
+public class Filters implements ninja.application.ApplicationFilters {
 
     @Override
-    public void init(Router router) {  
-        router.GET().route("/search/{topic}").with(ApplicationController::search);
-        router.GET().route("/lookup/{bookNumber}").with(ApplicationController::lookup);
-        router.POST().route("/buy/{bookNumber}").with(ApplicationController::buy);
+    public void addFilters(List<Class<? extends Filter>> filters) {
+        // Add your application - wide filters here
+        // filters.add(MyFilter.class);
     }
-
 }

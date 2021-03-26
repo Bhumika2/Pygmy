@@ -32,38 +32,41 @@
 
 package controllers;
 
-import models.OrderRequest;
-import models.OrderResponse;
+import models.*;
 import ninja.Result;
 import ninja.Results;
 
 import com.google.inject.Singleton;
 import ninja.params.PathParam;
-import service.Catalogue;
+import service.Catalog;
 import service.Order;
+
+import java.util.List;
 
 
 @Singleton
 public class ApplicationController {
 
     public Result search(@PathParam("topic") String topic) {
-        Catalogue catalogue = new Catalogue();
-        String searchMsg = catalogue.searchTopic(topic);
-        return Results.json().render(searchMsg);
+        System.out.println("Search request received for topic: "+topic);
+        Catalog catalog = new Catalog();
+        List<CatalogResponse> catalogResponse = catalog.searchTopic(topic);
+        return Results.json().render(catalogResponse);
 
     }
 
     public Result lookup(@PathParam("bookNumber") Integer bookNumber) {
-        Catalogue catalogue = new Catalogue();
-        String lookupMsg = catalogue.lookupBook(bookNumber);
-        return Results.json().render(lookupMsg);
-
+        System.out.println("Lookup request received for item: "+bookNumber);
+        Catalog catalog = new Catalog();
+        CatalogResponse catalogResponse = catalog.lookupBook(bookNumber);
+        return Results.json().render(catalogResponse);
     }
 
-    public Result buy(OrderRequest orderReq) {
+    public Result buy(@PathParam("bookNumber") Integer bookNumber) {
         System.out.println("Buy request received frontend!");
         Order order = new Order();
-        OrderResponse orderResponse = order.buyBook(orderReq);
+        OrderRequest orderRequest = new OrderRequest(bookNumber);
+        OrderResponse orderResponse = order.buyBook(orderRequest);
         return Results.json().render(orderResponse);
     }
 }

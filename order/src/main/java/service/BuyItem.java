@@ -37,7 +37,7 @@ public class BuyItem {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/search/" + bookNumber))
+                    .uri(URI.create("http://localhost:8085/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
@@ -51,19 +51,20 @@ public class BuyItem {
         } catch (Exception e){
             //TODO: error
         }
-        book.setCost("12");
-        book.setCount(2);
-        book.setBookNumber(1);
-        book.setBookName("ABCDEF");
+//        book.setCost("12");
+//        book.setCount(2);
+//        book.setBookNumber(1);
+//        book.setBookName("ABCDEF");
         return book;
     }
 
     public boolean initiateBuy(Integer bookNumber) {
+        System.out.println("Initiating buy request for book: "+bookNumber);
         boolean buyStatus = false;
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/buy/" + bookNumber))
+                    .uri(URI.create("http://localhost:8085/update/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
