@@ -6,3 +6,4 @@ order/.idea/*
 *.iml
 frontend/.idea/*
 catalog/.idea/*
+*.class

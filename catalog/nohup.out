@@ -1,0 +1,248 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< org.example:catalog >-------------------------
+[INFO] Building catalog 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ catalog ---
+[INFO] Deleting /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-banned-dependencies) @ catalog ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ catalog ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 11 resources
+[INFO] skip non existing resourceDirectory /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ catalog ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 6 source files to /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ catalog ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ catalog ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ catalog ---
+[INFO] Surefire report directory: /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ catalog ---
+[INFO] Building jar: /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/catalog-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.2:shade (default) @ catalog ---
+[INFO] Including org.webjars:bootstrap:jar:3.3.4 in the shaded jar.
+[INFO] Including org.webjars:jquery:jar:2.1.3 in the shaded jar.
+[INFO] Including com.h2database:h2:jar:1.4.186 in the shaded jar.
+[INFO] Including org.ninjaframework:ninja-standalone:jar:6.5.0 in the shaded jar.
+[INFO] Including org.ninjaframework:ninja-servlet:jar:6.5.0 in the shaded jar.
+[INFO] Including org.ninjaframework:ninja-websockets-jsr356:jar:6.5.0 in the shaded jar.
+[INFO] Including com.google.inject.extensions:guice-servlet:jar:4.2.2 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-server:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-http:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-io:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-servlet:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-security:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-xml:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:javax-websocket-server-impl:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:javax-websocket-client-impl:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including javax.websocket:javax.websocket-client-api:jar:1.0 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-server:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-servlet:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including javax.servlet:javax.servlet-api:jar:3.1.0 in the shaded jar.
+[INFO] Including javax.websocket:javax.websocket-api:jar:1.1 in the shaded jar.
+[INFO] Including org.ninjaframework:ninja-core:jar:6.5.0 in the shaded jar.
+[INFO] Including org.ocpsoft.prettytime:prettytime:jar:4.0.2.Final in the shaded jar.
+[INFO] Including joda-time:joda-time:jar:2.10.1 in the shaded jar.
+[INFO] Including com.google.inject:guice:jar:4.2.2 in the shaded jar.
+[INFO] Including javax.inject:javax.inject:jar:1 in the shaded jar.
+[INFO] Including aopalliance:aopalliance:jar:1.0 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:25.1-android in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.2 in the shaded jar.
+[INFO] Including org.checkerframework:checker-compat-qual:jar:2.0.0 in the shaded jar.
+[INFO] Including com.google.errorprone:error_prone_annotations:jar:2.1.3 in the shaded jar.
+[INFO] Including com.google.j2objc:j2objc-annotations:jar:1.1 in the shaded jar.
+[INFO] Including org.codehaus.mojo:animal-sniffer-annotations:jar:1.14 in the shaded jar.
+[INFO] Including com.google.inject.extensions:guice-assistedinject:jar:4.2.2 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.9.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-afterburner:jar:2.9.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.9.8 in the shaded jar.
+[INFO] Including org.freemarker:freemarker-gae:jar:2.3.28 in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.12 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-classic:jar:1.2.3 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-core:jar:1.2.3 in the shaded jar.
+[INFO] Including org.slf4j:jcl-over-slf4j:jar:1.7.26 in the shaded jar.
+[INFO] Including org.slf4j:log4j-over-slf4j:jar:1.7.26 in the shaded jar.
+[INFO] Including commons-io:commons-io:jar:2.6 in the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.9 in the shaded jar.
+[INFO] Including commons-configuration:commons-configuration:jar:1.10 in the shaded jar.
+[INFO] Including commons-fileupload:commons-fileupload:jar:1.4 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-validator:jar:4.3.1.Final in the shaded jar.
+[INFO] Including javax.validation:validation-api:jar:1.0.0.GA in the shaded jar.
+[INFO] Including com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.9.8 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.9.8 in the shaded jar.
+[INFO] Including org.codehaus.woodstox:stax2-api:jar:3.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.woodstox:woodstox-core:jar:5.2.0 in the shaded jar.
+[INFO] Including net.sf.ehcache:ehcache-core:jar:2.6.11 in the shaded jar.
+[INFO] Including net.spy:spymemcached:jar:2.12.3 in the shaded jar.
+[INFO] Including org.flywaydb:flyway-core:jar:5.2.4 in the shaded jar.
+[INFO] Including com.google.inject.extensions:guice-persist:jar:4.2.2 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-entitymanager:jar:4.3.8.Final in the shaded jar.
+[INFO] Including org.jboss.logging:jboss-logging-annotations:jar:1.2.0.Beta1 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-core:jar:4.3.8.Final in the shaded jar.
+[INFO] Including antlr:antlr:jar:2.7.7 in the shaded jar.
+[INFO] Including org.jboss:jandex:jar:1.1.0.Final in the shaded jar.
+[INFO] Including dom4j:dom4j:jar:1.6.1 in the shaded jar.
+[INFO] Including org.hibernate.common:hibernate-commons-annotations:jar:4.0.5.Final in the shaded jar.
+[INFO] Including org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final in the shaded jar.
+[INFO] Including org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.0.0.Final in the shaded jar.
+[INFO] Including org.javassist:javassist:jar:3.18.1-GA in the shaded jar.
+[INFO] Including org.hibernate:hibernate-c3p0:jar:4.3.8.Final in the shaded jar.
+[INFO] Including org.jboss.logging:jboss-logging:jar:3.1.3.GA in the shaded jar.
+[INFO] Including com.mchange:c3p0:jar:0.9.2.1 in the shaded jar.
+[INFO] Including com.mchange:mchange-commons-java:jar:0.2.3.4 in the shaded jar.
+[INFO] Including com.google.inject.extensions:guice-multibindings:jar:4.2.2 in the shaded jar.
+[INFO] Including javax.xml.bind:jaxb-api:jar:2.3.0 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-client:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-client:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-common:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-api:jar:9.4.18.v20190429 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.12 in the shaded jar.
+[INFO] Including commons-lang:commons-lang:jar:2.6 in the shaded jar.
+[INFO] Including org.xerial:sqlite-jdbc:jar:3.8.7 in the shaded jar.
+[WARNING] javax.websocket-api-1.1.jar, javax.websocket-client-api-1.0.jar define 45 overlappping classes: 
+[WARNING]   - javax.websocket.Decoder$Text
+[WARNING]   - javax.websocket.DeploymentException
+[WARNING]   - javax.websocket.SendHandler
+[WARNING]   - javax.websocket.ClientEndpointConfig
+[WARNING]   - javax.websocket.SendResult
+[WARNING]   - javax.websocket.Extension
+[WARNING]   - javax.websocket.ClientEndpointConfig$Builder
+[WARNING]   - javax.websocket.OnError
+[WARNING]   - javax.websocket.PongMessage
+[WARNING]   - javax.websocket.Decoder
+[WARNING]   - 35 more...
+[WARNING] maven-shade-plugin has detected that some .class files
+[WARNING] are present in two or more JARs. When this happens, only
+[WARNING] one single version of the class is copied in the uberjar.
+[WARNING] Usually this is not harmful and you can skeep these
+[WARNING] warnings, otherwise try to manually exclude artifacts
+[WARNING] based on mvn dependency:tree -Ddetail=true and the above
+[WARNING] output
+[WARNING] See http://docs.codehaus.org/display/MAVENUSER/Shade+Plugin
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/catalog-1.0-SNAPSHOT.jar with /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/catalog-1.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/dependency-reduced-pom.xml
+[INFO] Dependency-reduced POM written at: /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/dependency-reduced-pom.xml
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ catalog ---
+[INFO] Installing /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/catalog-1.0-SNAPSHOT.jar to /Users/jagritisinghal/.m2/repository/org/example/catalog/1.0-SNAPSHOT/catalog-1.0-SNAPSHOT.jar
+[INFO] Installing /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/dependency-reduced-pom.xml to /Users/jagritisinghal/.m2/repository/org/example/catalog/1.0-SNAPSHOT/catalog-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.014 s
+[INFO] Finished at: 2021-03-28T17:48:21-04:00
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< org.example:catalog >-------------------------
+[INFO] Building catalog 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- ninja-maven-plugin:6.5.0:run (default-cli) @ catalog ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Ninja will watch dirs:
+[INFO]  /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/classes
+[INFO] 
+[INFO] Ninja will launch with:
+[INFO]       context: <default>
+[INFO]          mode: dev
+[INFO]          port: <default>
+[INFO]      ssl port: <default>
+[INFO]     mainClass: ninja.standalone.AutoStandalone
+[INFO] extra jvmArgs: <none>
+[INFO] ------------------------------------------------------------------------
+17:48:26.130 [main] INFO  ninja.utils.NinjaModeHelper - Ninja is running in mode dev
+17:48:26.250 [NinjaJetty] INFO  org.eclipse.jetty.util.log - Logging initialized @622ms to org.eclipse.jetty.util.log.Slf4jLog
+17:48:26.301 [NinjaJetty] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
+17:48:26.387 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Trying to start jetty v9.4.18.v20190429 on <all>:8081
+17:48:26.389 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 15.0.2+7-27
+17:48:26.442 [NinjaJetty] INFO  ninja.servlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@732d0d24{STARTED}
+17:48:26.457 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+17:48:26.460 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/Users/jagritisinghal/.m2/repository/com/google/inject/guice/4.2.2/guice-4.2.2.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+17:48:27.345 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+17:48:27.345 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+17:48:27.383 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+17:48:27.384 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+17:48:27.402 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+17:48:27.405 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 943 ms.
+17:48:27.457 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: http://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+17:48:27.461 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+17:48:27.462 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+17:48:27.462 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+17:48:27.462 [NinjaJetty] INFO  ninja.RouterImpl - GET  /queryBySubject/{topic}  =>  controllers.ApplicationController::queryBySubject
+17:48:27.462 [NinjaJetty] INFO  ninja.RouterImpl - GET  /queryByItem/{id}        =>  controllers.ApplicationController::queryByItem
+17:48:27.462 [NinjaJetty] INFO  ninja.RouterImpl - POST /update/{id}/{type}      =>  controllers.ApplicationController::update
+17:48:27.463 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  http://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.5.0
+
+17:48:27.463 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+17:48:27.465 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 2ms
+17:48:27.469 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4de91056{/,null,AVAILABLE}
+17:48:27.501 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@3232a28a{HTTP/1.1,[http/1.1]}{0.0.0.0:8081}
+17:48:27.503 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1877ms
+17:48:27.503 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.18.v20190429 on <all>:8081
+17:48:27.503 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+17:48:27.503 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+17:48:27.504 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8081
+17:48:27.504 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+{1=Book{bookNumber=1, bookName='How to get a good grade in 677 in 20 minutes a day', topic='distributed systems', cost=25, count=5}, 2=Book{bookNumber=2, bookName='RPCs for Dummies', topic='distributed systems', cost=50, count=1}, 3=Book{bookNumber=3, bookName='Xen and the Art of Surviving Graduate School', topic='graduate school', cost=40, count=5}, 4=Book{bookNumber=4, bookName='Cooking for the Impatient Graduate Student', topic='graduate school', cost=60, count=1}}
+Query by Subject request received for topic: graduate school
+Query by Item request received for item: 1
+buy update request received for item: 1
+Query by Subject request received for topic: distributed systems
+Query by Item request received for item: 4
+buy update request received for item: 4
+Query by Subject request received for topic: distributed systems
+Query by Subject request received for topic: distributed systems
+Query by Item request received for item: 1
+buy update request received for item: 1
+Query by Item request received for item: 3

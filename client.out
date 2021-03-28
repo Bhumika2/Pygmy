@@ -1,0 +1,32 @@
+Action: search
+Requesting book details corresponding to topic: graduate school
+Response::(GET http://localhost:8080/search/graduate+school) 200
+[{"bookNumber":3,"bookName":"Xen and the Art of Surviving Graduate School","topic":"graduate school","cost":40,"count":5},{"bookNumber":4,"bookName":"Cooking for the Impatient Graduate Student","topic":"graduate school","cost":60,"count":1}]
+Action: buy
+Buy Request for book: 1
+Response::(POST http://localhost:8080/buy/1) 200
+{"bookNumber":1,"message":"Successfully bought book - How to get a good grade in 677 in 20 minutes a day"}
+Action: search
+Requesting book details corresponding to topic: distributed systems
+Response::(GET http://localhost:8080/search/distributed+systems) 200
+[{"bookNumber":1,"bookName":"How to get a good grade in 677 in 20 minutes a day","topic":"distributed systems","cost":25,"count":4},{"bookNumber":2,"bookName":"RPCs for Dummies","topic":"distributed systems","cost":50,"count":1}]
+Action: buy
+Buy Request for book: 4
+Response::(POST http://localhost:8080/buy/4) 200
+{"bookNumber":4,"message":"Successfully bought book - Cooking for the Impatient Graduate Student"}
+Action: search
+Requesting book details corresponding to topic: distributed systems
+Response::(GET http://localhost:8080/search/distributed+systems) 200
+[{"bookNumber":1,"bookName":"How to get a good grade in 677 in 20 minutes a day","topic":"distributed systems","cost":25,"count":4},{"bookNumber":2,"bookName":"RPCs for Dummies","topic":"distributed systems","cost":50,"count":1}]
+Action: search
+Requesting book details corresponding to topic: distributed systems
+Response::(GET http://localhost:8080/search/distributed+systems) 200
+[{"bookNumber":1,"bookName":"How to get a good grade in 677 in 20 minutes a day","topic":"distributed systems","cost":25,"count":4},{"bookNumber":2,"bookName":"RPCs for Dummies","topic":"distributed systems","cost":50,"count":1}]
+Action: buy
+Buy Request for book: 1
+Response::(POST http://localhost:8080/buy/1) 200
+{"bookNumber":1,"message":"Successfully bought book - How to get a good grade in 677 in 20 minutes a day"}
+Action: lookup
+Requesting details of book: 3
+Response::(GET http://localhost:8080/lookup/3) 200
+{"bookNumber":3,"bookName":"Xen and the Art of Surviving Graduate School","topic":"graduate school","cost":40,"count":5}
