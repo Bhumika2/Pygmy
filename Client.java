@@ -22,7 +22,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8081/lookup/" + id))
+                                .uri(URI.create("http://localhost:8080/lookup/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -43,7 +43,7 @@ public class Client {
                         HttpClient client = HttpClient.newHttpClient();
                         String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8081/search/" + restUrl))
+                                .uri(URI.create("http://localhost:8080/search/" + restUrl))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -63,7 +63,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8081/buy/" + id))
+                                .uri(URI.create("http://localhost:8080/buy/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .POST(HttpRequest.BodyPublishers.noBody())

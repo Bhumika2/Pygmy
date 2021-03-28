@@ -1,12 +1,54 @@
 /**
  * Copyright (C) 2012-2019 the original author or authors.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p>
+ * Copyright (C) 2013 the original author or authors.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p>
+ * Copyright (C) 2013 the original author or authors.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p>
+ * Copyright (C) 2013 the original author or authors.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -43,58 +85,130 @@ import ninja.params.PathParam;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 
 @Singleton
 public class ApplicationController {
 
-    private HashMap<Integer,Book> bookMap;
-    private HashMap<String,List<Book>> topicMap;
+    private HashMap<Integer, Book> bookMap;
+    private HashMap<String, List<Integer>> topicMap;
+    private Connection connection;
 
     public ApplicationController() {
-        bookMap = new HashMap<>();
-        bookMap.put(1, new Book(1,"How to get a good grade in 677 in 20 minutes a day","distributed systems",25,5));
-        bookMap.put(2, new Book(2,"RPCs for Dummies","distributed systems",50,3));
-        bookMap.put(3, new Book(3,"Xen and the Art of Surviving Graduate School","graduate school",40,5));
-        bookMap.put(4, new Book(4,"Cooking for the Impatient Graduate Student","graduate school",60,3));
-
-        topicMap = new HashMap<>();
-        List<Book> books = new ArrayList<>();
-        books.add(new Book(1,"How to get a good grade in 677 in 20 minutes a day","distributed systems",25,5));
-        books.add(new Book(2,"RPCs for Dummies","distributed systems",50,3));
-        topicMap.put("distributed systems",books);
-        books = new ArrayList<>();
-        books.add(new Book(3,"Xen and the Art of Surviving Graduate School","graduate school",40,5));
-        books.add(new Book(4,"Cooking for the Impatient Graduate Student","graduate school",60,3));
-        topicMap.put("graduate school",books);
+        setDBConnection();
+        getAllBooks();
     }
-    public Result queryByItem(@PathParam("id") int id)
-    {
-        System.out.println("Query by Item request received for item: "+id);
+
+    public Result queryByItem(@PathParam("id") int id) {
+        System.out.println("Query by Item request received for item: " + id);
         return Results.json().render(bookMap.get(id));
     }
+
     public Result queryBySubject(@PathParam("topic") String topic) throws UnsupportedEncodingException {
         topic = URLDecoder.decode(topic, StandardCharsets.UTF_8.toString());
-        System.out.println("Query by Subject request received for topic: "+topic);
-        return Results.json().render(topicMap.get(topic));
+        System.out.println("Query by Subject request received for topic: " + topic);
+        List<Integer> bookList = topicMap.get(topic);
+        List<Book> booksByTopic = new ArrayList<>();
+        for(Integer bookNumber: bookList){
+            booksByTopic.add(bookMap.get(bookNumber));
+        }
+        return Results.json().render(booksByTopic);
     }
 
-    public Result update(@PathParam("id") int id) {
-        System.out.println("Update request received for item: "+id);
+    public Result update(@PathParam("id") int id, @PathParam("type") String type) {
+        System.out.println(type + " update request received for item: " + id);
         String message = "failure";
-        if(bookMap.get(id)!=null && bookMap.get(id).getCount() > 0) {
-            bookMap.get(id).setCount(bookMap.get(id).getCount() - 1);
+        if(type.equals("restock")){
+            restockBook(bookMap.get(id).getBookNumber());
+            bookMap.get(id).setCount(5);
             message = "success";
+        } else {
+            synchronized (bookMap) {
+                if (bookMap.get(id) != null) {
+                    if (bookMap.get(id).getCount() > 0) {
+                        bookMap.get(id).setCount(bookMap.get(id).getCount() - 1);
+                        message = "success";
+                    }
+                }
+            }
+            if (message.equals("success")) {
+                updateDB(bookMap.get(id).getBookNumber());
+            }
         }
         UpdateResponse updateRes = new UpdateResponse();
-        updateRes.setId(id);
+        updateRes.setBookNumber(id);
         updateRes.setMessage(message);
         return Results.json().render(updateRes);
     }
 
-    //TODO periodically update the stock items
+    public void getAllBooks() {
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);
+
+            ResultSet rs = statement.executeQuery("select * from book");
+            bookMap = new HashMap<>();
+            topicMap = new HashMap<>();
+            List<Integer> distributedBooks = new ArrayList<>();
+            List<Integer> graduateBooks = new ArrayList<>();
+            while (rs.next()) {
+                Book book = new Book(rs.getInt("book_number"), rs.getString("book_name"),
+                        rs.getString("topic"), rs.getInt("cost"), rs.getInt("count"));
+                bookMap.put(rs.getInt("book_number"), book);
+                switch (rs.getString("topic")) {
+                    case "distributed systems":
+                        distributedBooks.add(rs.getInt("book_number"));
+                        break;
+                    case "graduate school":
+                        graduateBooks.add(rs.getInt("book_number"));
+                        break;
+                }
+            }
+            topicMap.put("distributed systems", distributedBooks);
+            topicMap.put("graduate school", graduateBooks);
+            System.out.println(bookMap);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void updateDB(Integer bookNumber) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);
+            statement.executeUpdate("update book set count = count - 1 where book_number = " + bookNumber);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void restockBook(Integer bookNumber) {
+        System.out.println("Restocking book - " + bookNumber);
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);
+            statement.executeUpdate("update book set count = 5 where book_number = " + bookNumber);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void setDBConnection() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            if (connection == null) {
+                connection = DriverManager.getConnection("jdbc:sqlite:books.db");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
 }

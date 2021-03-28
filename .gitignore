@@ -5,3 +5,4 @@ order/.idea/*
 .DS_Store
 *.iml
 frontend/.idea/*
+catalog/.idea/*

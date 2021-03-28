@@ -1,15 +1,15 @@
 package models;
 
 public class UpdateResponse {
-    Integer id;
+    Integer bookNumber;
     String message;
 
-    public Integer getId() {
-        return id;
+    public Integer getBookNumber() {
+        return bookNumber;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBookNumber(Integer bookNumber) {
+        this.bookNumber = bookNumber;
     }
 
     public String getMessage() {

@@ -23,7 +23,7 @@ public class Catalog {
             HttpClient client = HttpClient.newHttpClient();
             String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/queryBySubject/"+ restUrl))
+                    .uri(URI.create("http://localhost:8081/queryBySubject/"+ restUrl))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
@@ -50,7 +50,7 @@ public class Catalog {
             //String catalogReqStr = objectMapper.writeValueAsString(catalogRequest);
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/queryByItem/"+bookNumber))
+                    .uri(URI.create("http://localhost:8081/queryByItem/"+bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()

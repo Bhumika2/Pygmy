@@ -20,11 +20,12 @@ public class BuyItem {
         if (book != null && book.getCount() > 0) {
             boolean status = initiateBuy(bookNumber);
             message = "Buy failed for book - " + book.getBookName();
-            if (status){
+            if (status) {
                 message = "Successfully bought book - " + book.getBookName();
             }
         } else {
             message = "Insufficient quantity of book - " + book.getBookName();
+            restockBook(bookNumber);
         }
         BuyResponse buyResponse = new BuyResponse();
         buyResponse.setBookNumber(bookNumber);
@@ -33,53 +34,69 @@ public class BuyItem {
     }
 
     public Book checkBookAvailability(Integer bookNumber) {
-        Book book = new Book();
+        Book book = null;
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/queryByItem/" + bookNumber))
+                    .uri(URI.create("http://localhost:8081/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if(response.statusCode() != 200){
+            if (response.statusCode() != 200) {
                 //TODO: error
             }
             ObjectMapper mapper = new ObjectMapper();
             book = mapper.readValue(response.body().toString(), Book.class);
-        } catch (Exception e){
+        } catch (Exception e) {
             //TODO: error
         }
-//        book.setCost("12");
-//        book.setCount(2);
-//        book.setBookNumber(1);
-//        book.setBookName("ABCDEF");
         return book;
     }
 
     public boolean initiateBuy(Integer bookNumber) {
-        System.out.println("Initiating buy request for book: "+bookNumber);
+        System.out.println("Initiating buy request for book: " + bookNumber);
         boolean buyStatus = false;
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8085/update/" + bookNumber))
+                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            if(response.statusCode() != 200){
+            if (response.statusCode() != 200) {
                 //TODO: error
             }
-            if (response.body().equals("success")){
+            ObjectMapper mapper = new ObjectMapper();
+            BuyResponse buyResponse = mapper.readValue(response.body().toString(), BuyResponse.class);
+            if (buyResponse.getMessage().equals("success")) {
                 buyStatus = true;
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             //TODO: error
         }
-        buyStatus = true;
         return buyStatus;
+    }
+
+    public void restockBook(Integer bookNumber) {
+        System.out.println("Initiating restock request for book: " + bookNumber);
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/restock"))
+                    .timeout(Duration.ofMinutes(1))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.noBody())
+                    .build();
+            HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != 200) {
+                //TODO: error
+            }
+        } catch (Exception e) {
+            //TODO: error
+        }
     }
 }
