@@ -158,8 +158,8 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.662 s
-[INFO] Finished at: 2021-03-28T17:48:43-04:00
+[INFO] Total time:  9.465 s
+[INFO] Finished at: 2021-03-28T18:54:17-04:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Scanning for projects...
 [INFO] 
@@ -180,83 +180,8 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO]     mainClass: ninja.standalone.AutoStandalone
 [INFO] extra jvmArgs: <none>
 [INFO] ------------------------------------------------------------------------
-17:48:47.970 [main] INFO  ninja.utils.NinjaModeHelper - Ninja is running in mode dev
-17:48:48.086 [NinjaJetty] INFO  org.eclipse.jetty.util.log - Logging initialized @563ms to org.eclipse.jetty.util.log.Slf4jLog
-17:48:48.136 [NinjaJetty] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
-17:48:48.216 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Trying to start jetty v9.4.35.v20201120 on <all>:8080
-17:48:48.217 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 15.0.2+7-27
-17:48:48.262 [NinjaJetty] INFO  ninja.servlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@301eda63{STARTED}
-17:48:48.272 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
-17:48:48.275 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
 WARNING: An illegal reflective access operation has occurred
 WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/Users/jagritisinghal/.m2/repository/com/google/inject/guice/4.2.3/guice-4.2.3.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
 WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-17:48:49.043 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
-17:48:49.043 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
-17:48:49.101 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
-17:48:49.102 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
-17:48:49.123 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
-17:48:49.125 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 849 ms.
-17:48:49.151 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: https://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - GET  /search/{topic}       =>  controllers.ApplicationController::search
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - GET  /lookup/{bookNumber}  =>  controllers.ApplicationController::lookup
-17:48:49.155 [NinjaJetty] INFO  ninja.RouterImpl - POST /buy/{bookNumber}     =>  controllers.ApplicationController::buy
-17:48:49.157 [NinjaJetty] INFO  ninja.NinjaDefault - 
- _______  .___ _______        ____.  _____   
- \      \ |   |\      \      |    | /  _  \  
- /   |   \|   |/   |   \     |    |/  /_\  \ 
-/    |    \   /    |    \/\__|    /    |    \  https://www.ninjaframework.org
-\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
-     web\/framework   \/                  \/   6.8.1
-
-17:48:49.157 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
-17:48:49.159 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 1ms
-17:48:49.165 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@ff1f465{/,null,AVAILABLE}
-17:48:49.197 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4f2b503c{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
-17:48:49.199 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1679ms
-17:48:49.200 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.35.v20201120 on <all>:8080
-17:48:49.200 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
-17:48:49.200 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
-17:48:49.200 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8080
-17:48:49.200 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
-Search request received for topic: graduate+school
-calling catalog microservice
-Response::(GET http://localhost:8081/queryBySubject/graduate%2Bschool) 200
-Buy request received frontend!
-calling order microservice
-Response::(POST http://localhost:8082/buy) 200
-Search request received for topic: distributed+systems
-calling catalog microservice
-Response::(GET http://localhost:8081/queryBySubject/distributed%2Bsystems) 200
-Buy request received frontend!
-calling order microservice
-Response::(POST http://localhost:8082/buy) 200
-Search request received for topic: distributed+systems
-calling catalog microservice
-Response::(GET http://localhost:8081/queryBySubject/distributed%2Bsystems) 200
-Search request received for topic: distributed+systems
-calling catalog microservice
-Response::(GET http://localhost:8081/queryBySubject/distributed%2Bsystems) 200
-Buy request received frontend!
-calling order microservice
-Response::(POST http://localhost:8082/buy) 200
-Lookup request received for item: 3
-calling catalog microservice
-Response::(GET http://localhost:8081/queryByItem/3) 200

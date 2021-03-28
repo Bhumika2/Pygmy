@@ -3,6 +3,8 @@ package service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.OrderRequest;
 import models.OrderResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,10 +14,11 @@ import java.time.Duration;
 
 public class Order {
 
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     public OrderResponse buyBook(OrderRequest orderReq) {
         OrderResponse orderResponse = null;
         try {
-            System.out.println("calling order microservice");
+            logger.info("calling order microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             String orderReqStr = objectMapper.writeValueAsString(orderReq);
             HttpClient client = HttpClient.newHttpClient();
@@ -26,13 +29,13 @@ public class Order {
                     .POST(HttpRequest.BodyPublishers.ofString(orderReqStr))
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Response::" + response);
+            logger.info("Response::" + response);
             if (response.statusCode() != 200) {
-                System.out.println(response.statusCode());
+                logger.info("Response::"+response.statusCode());
             }
             orderResponse = objectMapper.readValue(response.body().toString(), OrderResponse.class);
         } catch (Exception e) {
-            System.out.println(e.getStackTrace());
+            logger.info(String.valueOf(e.getStackTrace()));
         }
         return orderResponse;
     }

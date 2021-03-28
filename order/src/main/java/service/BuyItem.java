@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Book;
 import models.BuyRequest;
 import models.BuyResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,7 +14,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 public class BuyItem {
-
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     public BuyResponse buy(BuyRequest buyObj) {
         Integer bookNumber = buyObj.getBookNumber();
         Book book = checkBookAvailability(bookNumber);
@@ -56,7 +58,7 @@ public class BuyItem {
     }
 
     public boolean initiateBuy(Integer bookNumber) {
-        System.out.println("Initiating buy request for book: " + bookNumber);
+        logger.info("Initiating buy request for book: " + bookNumber);
         boolean buyStatus = false;
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -82,7 +84,7 @@ public class BuyItem {
     }
 
     public void restockBook(Integer bookNumber) {
-        System.out.println("Initiating restock request for book: " + bookNumber);
+        logger.info("Initiating restock request for book: " + bookNumber);
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()

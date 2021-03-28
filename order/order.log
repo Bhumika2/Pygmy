@@ -1,0 +1,181 @@
+18:48:42.385 [main] INFO  ninja.utils.NinjaModeHelper - Ninja is running in mode dev
+18:48:42.520 [NinjaJetty] INFO  org.eclipse.jetty.util.log - Logging initialized @699ms to org.eclipse.jetty.util.log.Slf4jLog
+18:48:42.577 [NinjaJetty] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
+18:48:42.670 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Trying to start jetty v9.4.35.v20201120 on <all>:8082
+18:48:42.670 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 15.0.2+7-27
+18:48:42.725 [NinjaJetty] INFO  ninja.servlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@20c0a64d{STARTED}
+18:48:42.747 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+18:48:42.751 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+18:48:43.751 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+18:48:43.751 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+18:48:43.800 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+18:48:43.819 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+18:48:43.822 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 1068 ms.
+18:48:43.851 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: https://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+18:48:43.854 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:48:43.854 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+18:48:43.854 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:48:43.854 [NinjaJetty] INFO  ninja.RouterImpl - POST /buy  =>  controllers.ApplicationController::buy
+18:48:43.856 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  https://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.8.1
+
+18:48:43.856 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+18:48:43.859 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 3ms
+18:48:43.866 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4756e5cc{/,null,AVAILABLE}
+18:48:43.906 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:48:43.907 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @2089ms
+18:48:43.908 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.35.v20201120 on <all>:8082
+18:48:43.908 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:48:43.908 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+18:48:43.909 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8082
+18:48:43.910 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:48:56.417 [qtp1646464088-20] INFO  Pygmy - Buy request received
+18:48:57.279 [qtp1646464088-20] INFO  Pygmy - Initiating buy request for book: 1
+18:49:04.885 [qtp1646464088-15] INFO  Pygmy - Buy request received
+18:49:04.899 [qtp1646464088-15] INFO  Pygmy - Initiating buy request for book: 3
+18:49:05.406 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Stopping Ninja application...
+18:49:05.407 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application stopped in 1ms
+18:49:05.408 [Thread-8] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4756e5cc{/,null,STOPPED}
+18:49:05.408 [Thread-8] INFO  ninja.standalone.NinjaJetty - Trying to stop jetty on <all>:8082
+18:49:05.426 [Thread-8] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:49:05.428 [Thread-8] INFO  ninja.standalone.NinjaJetty - Stopped jetty on <all>:8082
+18:51:05.022 [main] INFO  ninja.utils.NinjaModeHelper - Ninja is running in mode dev
+18:51:05.146 [NinjaJetty] INFO  org.eclipse.jetty.util.log - Logging initialized @659ms to org.eclipse.jetty.util.log.Slf4jLog
+18:51:05.207 [NinjaJetty] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
+18:51:05.295 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Trying to start jetty v9.4.35.v20201120 on <all>:8082
+18:51:05.296 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 15.0.2+7-27
+18:51:05.360 [NinjaJetty] INFO  ninja.servlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@20c0a64d{STARTED}
+18:51:05.374 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+18:51:05.377 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+18:51:06.270 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+18:51:06.271 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+18:51:06.321 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+18:51:06.338 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+18:51:06.339 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+18:51:06.341 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 963 ms.
+18:51:06.367 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: https://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+18:51:06.369 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:51:06.369 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+18:51:06.369 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:51:06.369 [NinjaJetty] INFO  ninja.RouterImpl - POST /buy  =>  controllers.ApplicationController::buy
+18:51:06.372 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  https://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.8.1
+
+18:51:06.372 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+18:51:06.373 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 1ms
+18:51:06.379 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4756e5cc{/,null,AVAILABLE}
+18:51:06.412 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:51:06.414 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1927ms
+18:51:06.414 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.35.v20201120 on <all>:8082
+18:51:06.414 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:51:06.414 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+18:51:06.415 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8082
+18:51:06.416 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:51:21.035 [qtp1646464088-20] INFO  Pygmy - Buy request received
+18:51:21.461 [qtp1646464088-20] INFO  Pygmy - Initiating buy request for book: 2
+18:51:22.621 [qtp1646464088-15] INFO  Pygmy - Buy request received
+18:51:22.644 [qtp1646464088-15] INFO  Pygmy - Initiating buy request for book: 3
+18:51:23.708 [qtp1646464088-16] INFO  Pygmy - Buy request received
+18:51:23.724 [qtp1646464088-16] INFO  Pygmy - Initiating buy request for book: 3
+18:51:25.871 [qtp1646464088-13] INFO  Pygmy - Buy request received
+18:51:25.908 [qtp1646464088-13] INFO  Pygmy - Initiating buy request for book: 4
+18:51:28.100 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Stopping Ninja application...
+18:51:28.101 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application stopped in 1ms
+18:51:28.101 [Thread-8] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4756e5cc{/,null,STOPPED}
+18:51:28.102 [Thread-8] INFO  ninja.standalone.NinjaJetty - Trying to stop jetty on <all>:8082
+18:51:28.113 [Thread-8] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:51:28.115 [Thread-8] INFO  ninja.standalone.NinjaJetty - Stopped jetty on <all>:8082
+18:54:11.713 [main] INFO  ninja.utils.NinjaModeHelper - Ninja is running in mode dev
+18:54:11.845 [NinjaJetty] INFO  org.eclipse.jetty.util.log - Logging initialized @665ms to org.eclipse.jetty.util.log.Slf4jLog
+18:54:11.901 [NinjaJetty] WARN  o.e.j.server.handler.ContextHandler - Empty contextPath
+18:54:12.000 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Trying to start jetty v9.4.35.v20201120 on <all>:8082
+18:54:12.001 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 15.0.2+7-27
+18:54:12.053 [NinjaJetty] INFO  ninja.servlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@20c0a64d{STARTED}
+18:54:12.066 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+18:54:12.069 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+18:54:12.911 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+18:54:12.912 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+18:54:12.964 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+18:54:12.965 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+18:54:12.982 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+18:54:12.985 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 914 ms.
+18:54:13.021 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: https://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+18:54:13.024 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:54:13.024 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+18:54:13.024 [NinjaJetty] INFO  ninja.RouterImpl - ------------------------------------------------
+18:54:13.024 [NinjaJetty] INFO  ninja.RouterImpl - POST /buy  =>  controllers.ApplicationController::buy
+18:54:13.026 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  https://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.8.1
+
+18:54:13.027 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+18:54:13.030 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 3ms
+18:54:13.037 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4756e5cc{/,null,AVAILABLE}
+18:54:13.068 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:54:13.069 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1890ms
+18:54:13.069 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.35.v20201120 on <all>:8082
+18:54:13.069 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:54:13.069 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+18:54:13.070 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8082
+18:54:13.071 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+18:54:25.784 [qtp1646464088-20] INFO  Pygmy - Buy request received
+18:54:26.671 [qtp1646464088-20] INFO  Pygmy - Initiating buy request for book: 1
+18:54:28.023 [qtp1646464088-15] INFO  Pygmy - Buy request received
+18:54:28.033 [qtp1646464088-15] INFO  Pygmy - Initiating buy request for book: 3
+18:54:34.524 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Stopping Ninja application...
+18:54:34.525 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application stopped in 1ms
+18:54:34.525 [Thread-8] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4756e5cc{/,null,STOPPED}
+18:54:34.525 [Thread-8] INFO  ninja.standalone.NinjaJetty - Trying to stop jetty on <all>:8082
+18:54:34.532 [Thread-8] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+18:54:34.534 [Thread-8] INFO  ninja.standalone.NinjaJetty - Stopped jetty on <all>:8082

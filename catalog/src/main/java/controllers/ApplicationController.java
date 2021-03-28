@@ -81,6 +81,8 @@ import ninja.Results;
 
 import com.google.inject.Singleton;
 import ninja.params.PathParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -97,6 +99,7 @@ import java.util.List;
 @Singleton
 public class ApplicationController {
 
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     private HashMap<Integer, Book> bookMap;
     private HashMap<String, List<Integer>> topicMap;
     private Connection connection;
@@ -107,13 +110,13 @@ public class ApplicationController {
     }
 
     public Result queryByItem(@PathParam("id") int id) {
-        System.out.println("Query by Item request received for item: " + id);
+        logger.info("Query by Item request received for item: " + id);
         return Results.json().render(bookMap.get(id));
     }
 
     public Result queryBySubject(@PathParam("topic") String topic) throws UnsupportedEncodingException {
         topic = URLDecoder.decode(topic, StandardCharsets.UTF_8.toString());
-        System.out.println("Query by Subject request received for topic: " + topic);
+        logger.info("Query by Subject request received for topic: " + topic);
         List<Integer> bookList = topicMap.get(topic);
         List<Book> booksByTopic = new ArrayList<>();
         for(Integer bookNumber: bookList){
@@ -123,7 +126,7 @@ public class ApplicationController {
     }
 
     public Result update(@PathParam("id") int id, @PathParam("type") String type) {
-        System.out.println(type + " update request received for item: " + id);
+        logger.info(type + " update request received for item: " + id);
         String message = "failure";
         if(type.equals("restock")){
             restockBook(bookMap.get(id).getBookNumber());
@@ -173,7 +176,7 @@ public class ApplicationController {
             }
             topicMap.put("distributed systems", distributedBooks);
             topicMap.put("graduate school", graduateBooks);
-            System.out.println(bookMap);
+            //System.out.println(bookMap);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -190,13 +193,13 @@ public class ApplicationController {
     }
 
     public void restockBook(Integer bookNumber) {
-        System.out.println("Restocking book - " + bookNumber);
+        logger.info("Restocking book - " + bookNumber);
         try {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
             statement.executeUpdate("update book set count = 5 where book_number = " + bookNumber);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
@@ -207,7 +210,7 @@ public class ApplicationController {
                 connection = DriverManager.getConnection("jdbc:sqlite:books.db");
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 

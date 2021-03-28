@@ -38,6 +38,8 @@ import ninja.Results;
 
 import com.google.inject.Singleton;
 import ninja.params.PathParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.Catalog;
 import service.Order;
 
@@ -47,8 +49,9 @@ import java.util.List;
 @Singleton
 public class ApplicationController {
 
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     public Result search(@PathParam("topic") String topic) {
-        System.out.println("Search request received for topic: "+topic);
+        logger.info("Search request received for topic: "+topic);
         Catalog catalog = new Catalog();
         List<CatalogResponse> catalogResponse = catalog.searchTopic(topic);
         return Results.json().render(catalogResponse);
@@ -56,14 +59,14 @@ public class ApplicationController {
     }
 
     public Result lookup(@PathParam("bookNumber") Integer bookNumber) {
-        System.out.println("Lookup request received for item: "+bookNumber);
+        logger.info("Lookup request received for item: "+bookNumber);
         Catalog catalog = new Catalog();
         CatalogResponse catalogResponse = catalog.lookupBook(bookNumber);
         return Results.json().render(catalogResponse);
     }
 
     public Result buy(@PathParam("bookNumber") Integer bookNumber) {
-        System.out.println("Buy request received frontend!");
+        logger.info("Buy request received for item:"+bookNumber);
         Order order = new Order();
         OrderRequest orderRequest = new OrderRequest(bookNumber);
         OrderResponse orderResponse = order.buyBook(orderRequest);

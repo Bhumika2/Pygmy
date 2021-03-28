@@ -37,14 +37,16 @@ import models.BuyRequest;
 import models.BuyResponse;
 import ninja.Result;
 import ninja.Results;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.BuyItem;
 
 
 @Singleton
 public class ApplicationController {
-
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     public Result buy(BuyRequest buyObj) {
-        System.out.println("Buy request received!");
+        logger.info("Buy request received");
         BuyItem buyItem = new BuyItem();
         BuyResponse buyResponse = buyItem.buy(buyObj);
         return Results.json().render(buyResponse);

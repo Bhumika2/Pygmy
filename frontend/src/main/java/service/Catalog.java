@@ -3,6 +3,8 @@ package service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.CatalogResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.net.URLEncoder;
@@ -15,10 +17,11 @@ import java.util.List;
 
 public class Catalog {
 
+    Logger logger = LoggerFactory.getLogger("Pygmy");
     public List<CatalogResponse> searchTopic(String topic){
         List<CatalogResponse> catalogResponse = null;
         try {
-            System.out.println("calling catalog microservice");
+            logger.info("calling catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             HttpClient client = HttpClient.newHttpClient();
             String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
@@ -29,15 +32,15 @@ public class Catalog {
                     .GET()
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Response::" + response);
+            logger.info("Response::" + response);
             if (response.statusCode() != 200) {
-                System.out.println(response.statusCode());
+                logger.info("Response::"+response.statusCode());
             }
             //System.out.println(response.body().toString());
             catalogResponse = objectMapper.readValue(response.body().toString(), new TypeReference<List<CatalogResponse>>(){});
             //System.out.println(catalogResponse);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.info(String.valueOf(e.getStackTrace()));
         }
         return catalogResponse;
     }
@@ -45,7 +48,7 @@ public class Catalog {
     public CatalogResponse lookupBook(Integer bookNumber) {
         CatalogResponse catalogResponse = null;
         try {
-            System.out.println("calling catalog microservice");
+            logger.info("calling catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             //String catalogReqStr = objectMapper.writeValueAsString(catalogRequest);
             HttpClient client = HttpClient.newHttpClient();
@@ -56,14 +59,14 @@ public class Catalog {
                     .GET()
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Response::" + response);
+            logger.info("Response::" + response);
             if (response.statusCode() != 200) {
-                System.out.println(response.statusCode());
+                logger.info("Response::" +response.statusCode());
             }
             //System.out.println(response.body().toString());
             catalogResponse = objectMapper.readValue(response.body().toString(), CatalogResponse.class);
         } catch (Exception e) {
-            e.getStackTrace();
+            logger.info(String.valueOf(e.getStackTrace()));
         }
         return catalogResponse;
     }
