@@ -1,12 +1,12 @@
 /**
  * Copyright (C) the original author or authors.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,15 +18,14 @@
 package conf;
 
 
-import ninja.AssetsController;
+import controllers.ApplicationController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
 
 public class Routes implements ApplicationRoutes {
 
     @Override
-    public void init(Router router) {  
+    public void init(Router router) {
         router.GET().route("/search/{topic}").with(ApplicationController::search);
         router.GET().route("/lookup/{bookNumber}").with(ApplicationController::lookup);
         router.POST().route("/buy/{bookNumber}").with(ApplicationController::buy);

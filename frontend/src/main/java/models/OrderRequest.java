@@ -3,7 +3,7 @@ package models;
 public class OrderRequest {
     Integer bookNumber;
 
-    public OrderRequest(Integer bookNumber){
+    public OrderRequest(Integer bookNumber) {
         this.bookNumber = bookNumber;
     }
 

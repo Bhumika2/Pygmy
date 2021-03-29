@@ -54,6 +54,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * <p>
+ * Copyright (C) 2013 the original author or authors.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 /**
@@ -74,12 +88,11 @@
 
 package controllers;
 
+import com.google.inject.Singleton;
 import models.Book;
 import models.UpdateResponse;
 import ninja.Result;
 import ninja.Results;
-
-import com.google.inject.Singleton;
 import ninja.params.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -111,24 +124,32 @@ public class ApplicationController {
 
     public Result queryByItem(@PathParam("id") int id) {
         logger.info("Query by Item request received for item: " + id);
-        return Results.json().render(bookMap.get(id));
+        long startTime = System.nanoTime();
+        Book book = bookMap.get(id);
+        long timeElapsed = System.nanoTime() - startTime;
+        logger.info("Query by Item response time in milliseconds : " + timeElapsed / 1000000);
+        return Results.json().render(book);
     }
 
     public Result queryBySubject(@PathParam("topic") String topic) throws UnsupportedEncodingException {
         topic = URLDecoder.decode(topic, StandardCharsets.UTF_8.toString());
         logger.info("Query by Subject request received for topic: " + topic);
+        long startTime = System.nanoTime();
         List<Integer> bookList = topicMap.get(topic);
         List<Book> booksByTopic = new ArrayList<>();
-        for(Integer bookNumber: bookList){
+        for (Integer bookNumber : bookList) {
             booksByTopic.add(bookMap.get(bookNumber));
         }
+        long timeElapsed = System.nanoTime() - startTime;
+        logger.info("Query by Subject response time in milliseconds : " + timeElapsed / 1000000);
         return Results.json().render(booksByTopic);
     }
 
     public Result update(@PathParam("id") int id, @PathParam("type") String type) {
         logger.info(type + " update request received for item: " + id);
+        long startTime = System.nanoTime();
         String message = "failure";
-        if(type.equals("restock")){
+        if (type.equals("Restock")) {
             restockBook(bookMap.get(id).getBookNumber());
             bookMap.get(id).setCount(5);
             message = "success";
@@ -148,6 +169,8 @@ public class ApplicationController {
         UpdateResponse updateRes = new UpdateResponse();
         updateRes.setBookNumber(id);
         updateRes.setMessage(message);
+        long timeElapsed = System.nanoTime() - startTime;
+        logger.info("Update response time in milliseconds : " + timeElapsed / 1000000);
         return Results.json().render(updateRes);
     }
 
@@ -176,9 +199,9 @@ public class ApplicationController {
             }
             topicMap.put("distributed systems", distributedBooks);
             topicMap.put("graduate school", graduateBooks);
-            //System.out.println(bookMap);
+            logger.info("Current inventory in library: " + bookMap);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 
@@ -188,7 +211,7 @@ public class ApplicationController {
             statement.setQueryTimeout(30);
             statement.executeUpdate("update book set count = count - 1 where book_number = " + bookNumber);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 

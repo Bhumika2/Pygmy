@@ -15,6 +15,7 @@ import java.time.Duration;
 
 public class BuyItem {
     Logger logger = LoggerFactory.getLogger("Pygmy");
+
     public BuyResponse buy(BuyRequest buyObj) {
         Integer bookNumber = buyObj.getBookNumber();
         Book book = checkBookAvailability(bookNumber);
@@ -36,6 +37,7 @@ public class BuyItem {
     }
 
     public Book checkBookAvailability(Integer bookNumber) {
+        logger.info("Checking availability of book: " + bookNumber);
         Book book = null;
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -47,12 +49,12 @@ public class BuyItem {
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != 200) {
-                //TODO: error
+                logger.info("Non 200 response code received from catalog server: " + response.statusCode());
             }
             ObjectMapper mapper = new ObjectMapper();
             book = mapper.readValue(response.body().toString(), Book.class);
         } catch (Exception e) {
-            //TODO: error
+            logger.info(String.valueOf(e.getStackTrace()));
         }
         return book;
     }
@@ -63,14 +65,14 @@ public class BuyItem {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/buy"))
+                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/Buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != 200) {
-                //TODO: error
+                logger.info("Non 200 response code received from catalog server: " + response.statusCode());
             }
             ObjectMapper mapper = new ObjectMapper();
             BuyResponse buyResponse = mapper.readValue(response.body().toString(), BuyResponse.class);
@@ -78,7 +80,7 @@ public class BuyItem {
                 buyStatus = true;
             }
         } catch (Exception e) {
-            //TODO: error
+            logger.info(String.valueOf(e.getStackTrace()));
         }
         return buyStatus;
     }
@@ -88,17 +90,17 @@ public class BuyItem {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/restock"))
+                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/Restock"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != 200) {
-                //TODO: error
+                logger.info("Non 200 response code received from catalog server: " + response.statusCode());
             }
         } catch (Exception e) {
-            //TODO: error
+            logger.info(String.valueOf(e.getStackTrace()));
         }
     }
 }

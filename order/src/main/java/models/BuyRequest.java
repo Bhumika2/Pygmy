@@ -3,6 +3,7 @@ package models;
 public class BuyRequest {
 
     Integer bookNumber;
+
     public Integer getBookNumber() {
         return bookNumber;
     }

@@ -1,0 +1,258 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< frontend:frontend >--------------------------
+[INFO] Building frontend 1.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- ninja-maven-plugin:6.8.1:run (default-cli) @ frontend ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Ninja will watch dirs:
+[INFO]  /Users/jagritisinghal/Documents/DS/projects/Pygmy/frontend/target/classes
+[INFO] 
+[INFO] Ninja will launch with:
+[INFO]       context: <default>
+[INFO]          mode: dev
+[INFO]          port: <default>
+[INFO]      ssl port: <default>
+[INFO]     mainClass: ninja.standalone.AutoStandalone
+[INFO] extra jvmArgs: <none>
+[INFO] ------------------------------------------------------------------------
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/Users/jagritisinghal/.m2/repository/com/google/inject/guice/4.2.3/guice-4.2.3.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+vlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@20c0a64d{STARTED}
+21:17:07.169 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+21:17:07.169 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+21:17:07.858 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+21:17:07.858 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+21:17:07.905 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+21:17:07.906 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+21:17:07.926 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+21:17:07.927 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 756 ms.
+21:17:07.964 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: https://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - GET  /search/{topic}       =>  controllers.ApplicationController::search
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - GET  /lookup/{bookNumber}  =>  controllers.ApplicationController::lookup
+21:17:07.968 [NinjaJetty] INFO  ninja.RouterImpl - POST /buy/{bookNumber}     =>  controllers.ApplicationController::buy
+21:17:07.970 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  https://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.8.1
+
+21:17:07.970 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+21:17:07.972 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 2ms
+21:17:07.976 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@ff1f465{/,null,AVAILABLE}
+21:17:08.004 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+21:17:08.006 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1598ms
+21:17:08.006 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.35.v20201120 on <all>:8080
+21:17:08.006 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+21:17:08.006 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+21:17:08.007 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8080
+21:17:08.007 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+21:17:14.738 [qtp1646464088-20] INFO  Pygmy - Lookup request received for item: 4
+21:17:14.739 [qtp1646464088-20] INFO  Pygmy - Calling Catalog microservice
+21:17:15.704 [qtp1646464088-20] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 4,
+  "bookName" : "Cooking for the Impatient Graduate Student",
+  "topic" : "graduate school",
+  "cost" : 60,
+  "count" : 5
+}
+21:17:15.705 [qtp1646464088-20] INFO  Pygmy - Lookup response time in milliseconds : 965
+21:17:16.851 [qtp1646464088-14] INFO  Pygmy - Search request received for topic: distributed+systems
+21:17:16.852 [qtp1646464088-14] INFO  Pygmy - Calling Catalog microservice
+21:17:16.915 [qtp1646464088-14] INFO  Pygmy - Response for search request: [ {
+  "bookNumber" : 1,
+  "bookName" : "How to get a good grade in 677 in 20 minutes a day",
+  "topic" : "distributed systems",
+  "cost" : 25,
+  "count" : 3
+}, {
+  "bookNumber" : 2,
+  "bookName" : "RPCs for Dummies",
+  "topic" : "distributed systems",
+  "cost" : 50,
+  "count" : 0
+} ]
+21:17:16.916 [qtp1646464088-14] INFO  Pygmy - Search response time in milliseconds : 63
+21:17:17.942 [qtp1646464088-16] INFO  Pygmy - Lookup request received for item: 2
+21:17:17.942 [qtp1646464088-16] INFO  Pygmy - Calling Catalog microservice
+21:17:17.967 [qtp1646464088-16] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 2,
+  "bookName" : "RPCs for Dummies",
+  "topic" : "distributed systems",
+  "cost" : 50,
+  "count" : 0
+}
+21:17:17.968 [qtp1646464088-16] INFO  Pygmy - Lookup response time in milliseconds : 25
+21:17:18.991 [qtp1646464088-13] INFO  Pygmy - Lookup request received for item: 1
+21:17:18.991 [qtp1646464088-13] INFO  Pygmy - Calling Catalog microservice
+21:17:19.014 [qtp1646464088-13] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 1,
+  "bookName" : "How to get a good grade in 677 in 20 minutes a day",
+  "topic" : "distributed systems",
+  "cost" : 25,
+  "count" : 3
+}
+21:17:19.014 [qtp1646464088-13] INFO  Pygmy - Lookup response time in milliseconds : 22
+21:17:20.041 [qtp1646464088-15] INFO  Pygmy - Buy request received for item:1
+21:17:20.044 [qtp1646464088-15] INFO  Pygmy - Calling Order microservice
+21:17:20.694 [qtp1646464088-15] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 1,
+  "message" : "Successfully bought book - How to get a good grade in 677 in 20 minutes a day"
+}
+21:17:20.694 [qtp1646464088-15] INFO  Pygmy - Order response time in milliseconds : 653
+21:17:21.719 [qtp1646464088-19] INFO  Pygmy - Search request received for topic: graduate+school
+21:17:21.720 [qtp1646464088-19] INFO  Pygmy - Calling Catalog microservice
+21:17:21.745 [qtp1646464088-19] INFO  Pygmy - Response for search request: [ {
+  "bookNumber" : 3,
+  "bookName" : "Xen and the Art of Surviving Graduate School",
+  "topic" : "graduate school",
+  "cost" : 40,
+  "count" : 2
+}, {
+  "bookNumber" : 4,
+  "bookName" : "Cooking for the Impatient Graduate Student",
+  "topic" : "graduate school",
+  "cost" : 60,
+  "count" : 5
+} ]
+21:17:21.745 [qtp1646464088-19] INFO  Pygmy - Search response time in milliseconds : 25
+21:17:22.789 [qtp1646464088-20] INFO  Pygmy - Buy request received for item:1
+21:17:22.789 [qtp1646464088-20] INFO  Pygmy - Calling Order microservice
+21:17:22.835 [qtp1646464088-20] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 1,
+  "message" : "Successfully bought book - How to get a good grade in 677 in 20 minutes a day"
+}
+21:17:22.835 [qtp1646464088-20] INFO  Pygmy - Order response time in milliseconds : 46
+21:17:23.858 [qtp1646464088-14] INFO  Pygmy - Buy request received for item:3
+21:17:23.859 [qtp1646464088-14] INFO  Pygmy - Calling Order microservice
+21:17:23.906 [qtp1646464088-14] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 3,
+  "message" : "Successfully bought book - Xen and the Art of Surviving Graduate School"
+}
+21:17:23.906 [qtp1646464088-14] INFO  Pygmy - Order response time in milliseconds : 47
+21:17:24.929 [qtp1646464088-20] INFO  Pygmy - Buy request received for item:3
+21:17:24.930 [qtp1646464088-20] INFO  Pygmy - Calling Order microservice
+21:17:24.975 [qtp1646464088-20] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 3,
+  "message" : "Successfully bought book - Xen and the Art of Surviving Graduate School"
+}
+21:17:24.976 [qtp1646464088-20] INFO  Pygmy - Order response time in milliseconds : 45
+21:17:26.002 [qtp1646464088-19] INFO  Pygmy - Lookup request received for item: 2
+21:17:26.003 [qtp1646464088-19] INFO  Pygmy - Calling Catalog microservice
+21:17:26.027 [qtp1646464088-19] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 2,
+  "bookName" : "RPCs for Dummies",
+  "topic" : "distributed systems",
+  "cost" : 50,
+  "count" : 0
+}
+21:17:26.027 [qtp1646464088-19] INFO  Pygmy - Lookup response time in milliseconds : 23
+21:17:27.053 [qtp1646464088-14] INFO  Pygmy - Lookup request received for item: 3
+21:17:27.053 [qtp1646464088-14] INFO  Pygmy - Calling Catalog microservice
+21:17:27.071 [qtp1646464088-14] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 3,
+  "bookName" : "Xen and the Art of Surviving Graduate School",
+  "topic" : "graduate school",
+  "cost" : 40,
+  "count" : 0
+}
+21:17:27.072 [qtp1646464088-14] INFO  Pygmy - Lookup response time in milliseconds : 18
+21:17:28.095 [qtp1646464088-20] INFO  Pygmy - Buy request received for item:2
+21:17:28.095 [qtp1646464088-20] INFO  Pygmy - Calling Order microservice
+21:17:28.142 [qtp1646464088-20] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 2,
+  "message" : "Insufficient quantity of book - RPCs for Dummies"
+}
+21:17:28.142 [qtp1646464088-20] INFO  Pygmy - Order response time in milliseconds : 46
+21:17:29.169 [qtp1646464088-13] INFO  Pygmy - Search request received for topic: distributed+systems
+21:17:29.169 [qtp1646464088-13] INFO  Pygmy - Calling Catalog microservice
+21:17:29.199 [qtp1646464088-13] INFO  Pygmy - Response for search request: [ {
+  "bookNumber" : 1,
+  "bookName" : "How to get a good grade in 677 in 20 minutes a day",
+  "topic" : "distributed systems",
+  "cost" : 25,
+  "count" : 1
+}, {
+  "bookNumber" : 2,
+  "bookName" : "RPCs for Dummies",
+  "topic" : "distributed systems",
+  "cost" : 50,
+  "count" : 5
+} ]
+21:17:29.199 [qtp1646464088-13] INFO  Pygmy - Search response time in milliseconds : 29
+21:17:30.225 [qtp1646464088-16] INFO  Pygmy - Search request received for topic: graduate+school
+21:17:30.226 [qtp1646464088-16] INFO  Pygmy - Calling Catalog microservice
+21:17:30.247 [qtp1646464088-16] INFO  Pygmy - Response for search request: [ {
+  "bookNumber" : 3,
+  "bookName" : "Xen and the Art of Surviving Graduate School",
+  "topic" : "graduate school",
+  "cost" : 40,
+  "count" : 0
+}, {
+  "bookNumber" : 4,
+  "bookName" : "Cooking for the Impatient Graduate Student",
+  "topic" : "graduate school",
+  "cost" : 60,
+  "count" : 5
+} ]
+21:17:30.248 [qtp1646464088-16] INFO  Pygmy - Search response time in milliseconds : 22
+21:17:31.273 [qtp1646464088-19] INFO  Pygmy - Lookup request received for item: 3
+21:17:31.274 [qtp1646464088-19] INFO  Pygmy - Calling Catalog microservice
+21:17:31.290 [qtp1646464088-19] INFO  Pygmy - Response for lookup request: {
+  "bookNumber" : 3,
+  "bookName" : "Xen and the Art of Surviving Graduate School",
+  "topic" : "graduate school",
+  "cost" : 40,
+  "count" : 0
+}
+21:17:31.293 [qtp1646464088-19] INFO  Pygmy - Lookup response time in milliseconds : 19
+21:17:32.322 [qtp1646464088-14] INFO  Pygmy - Search request received for topic: distributed+systems
+21:17:32.322 [qtp1646464088-14] INFO  Pygmy - Calling Catalog microservice
+21:17:32.350 [qtp1646464088-14] INFO  Pygmy - Response for search request: [ {
+  "bookNumber" : 1,
+  "bookName" : "How to get a good grade in 677 in 20 minutes a day",
+  "topic" : "distributed systems",
+  "cost" : 25,
+  "count" : 1
+}, {
+  "bookNumber" : 2,
+  "bookName" : "RPCs for Dummies",
+  "topic" : "distributed systems",
+  "cost" : 50,
+  "count" : 5
+} ]
+21:17:32.350 [qtp1646464088-14] INFO  Pygmy - Search response time in milliseconds : 27
+21:17:33.370 [qtp1646464088-20] INFO  Pygmy - Buy request received for item:1
+21:17:33.370 [qtp1646464088-20] INFO  Pygmy - Calling Order microservice
+21:17:33.419 [qtp1646464088-20] INFO  Pygmy - Response for buy request: {
+  "bookNumber" : 1,
+  "message" : "Successfully bought book - How to get a good grade in 677 in 20 minutes a day"
+}
+21:17:33.419 [qtp1646464088-20] INFO  Pygmy - Order response time in milliseconds : 48
+21:17:34.249 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Stopping Ninja application...
+21:17:34.253 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application stopped in 4ms
+21:17:34.278 [Thread-8] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@ff1f465{/,null,STOPPED}
+21:17:34.284 [Thread-8] INFO  ninja.standalone.NinjaJetty - Trying to stop jetty on <all>:8080
+21:17:34.295 [Thread-8] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@5d0a1059{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+21:17:34.296 [Thread-8] INFO  ninja.standalone.NinjaJetty - Stopped jetty on <all>:8080

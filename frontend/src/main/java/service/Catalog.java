@@ -2,6 +2,7 @@ package service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import models.CatalogResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,27 +19,30 @@ import java.util.List;
 public class Catalog {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
-    public List<CatalogResponse> searchTopic(String topic){
+
+    public List<CatalogResponse> searchTopic(String topic) {
         List<CatalogResponse> catalogResponse = null;
         try {
-            logger.info("calling catalog microservice");
+            logger.info("Calling Catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             HttpClient client = HttpClient.newHttpClient();
             String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/queryBySubject/"+ restUrl))
+                    .uri(URI.create("http://localhost:8081/queryBySubject/" + restUrl))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            logger.info("Response::" + response);
             if (response.statusCode() != 200) {
-                logger.info("Response::"+response.statusCode());
+                logger.info("Non 200 response code received from catalog server: " + response.statusCode());
             }
-            //System.out.println(response.body().toString());
-            catalogResponse = objectMapper.readValue(response.body().toString(), new TypeReference<List<CatalogResponse>>(){});
-            //System.out.println(catalogResponse);
+            catalogResponse = objectMapper.readValue(response.body().toString(), new TypeReference<List<CatalogResponse>>() {
+            });
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            String json = mapper.writeValueAsString(catalogResponse);
+            logger.info("Response for search request: " + json);
         } catch (Exception e) {
             logger.info(String.valueOf(e.getStackTrace()));
         }
@@ -48,23 +52,25 @@ public class Catalog {
     public CatalogResponse lookupBook(Integer bookNumber) {
         CatalogResponse catalogResponse = null;
         try {
-            logger.info("calling catalog microservice");
+            logger.info("Calling Catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             //String catalogReqStr = objectMapper.writeValueAsString(catalogRequest);
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/queryByItem/"+bookNumber))
+                    .uri(URI.create("http://localhost:8081/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
                     .build();
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            logger.info("Response::" + response);
             if (response.statusCode() != 200) {
-                logger.info("Response::" +response.statusCode());
+                logger.info("Non 200 response code received from catalog server: " + response.statusCode());
             }
-            //System.out.println(response.body().toString());
             catalogResponse = objectMapper.readValue(response.body().toString(), CatalogResponse.class);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            String json = mapper.writeValueAsString(catalogResponse);
+            logger.info("Response for lookup request: " + json);
         } catch (Exception e) {
             logger.info(String.valueOf(e.getStackTrace()));
         }

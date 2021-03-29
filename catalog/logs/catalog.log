@@ -1,0 +1,124 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< org.example:catalog >-------------------------
+[INFO] Building catalog 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- ninja-maven-plugin:6.5.0:run (default-cli) @ catalog ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Ninja will watch dirs:
+[INFO]  /Users/jagritisinghal/Documents/DS/projects/Pygmy/catalog/target/classes
+[INFO] 
+[INFO] Ninja will launch with:
+[INFO]       context: <default>
+[INFO]          mode: dev
+[INFO]          port: <default>
+[INFO]      ssl port: <default>
+[INFO]     mainClass: ninja.standalone.AutoStandalone
+[INFO] extra jvmArgs: <none>
+[INFO] ------------------------------------------------------------------------
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/Users/jagritisinghal/.m2/repository/com/google/inject/guice/4.2.2/guice-4.2.2.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+vlet.NinjaServletListener - Using JSR-356 websocket container ServerContainer@4278284b{STARTED}
+21:16:46.524 [NinjaJetty] INFO  ninja.Bootstrap - Successfully configured Logback.
+21:16:46.524 [NinjaJetty] INFO  ninja.Bootstrap - Enabling Ninja classic configuration
+21:16:47.351 [NinjaJetty] INFO  ninja.utils.SwissKnife - Could not load file conf/messages_en.properties (not a bad thing necessarily, but I am returing null)
+21:16:47.351 [NinjaJetty] INFO  ninja.i18n.MessagesImpl - Did not find conf/messages_en.properties but it was specified in application.conf. Using default language instead.
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - Registered response template engines
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - -------------------------------------------------------------------
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/javascript  =>  ninja.template.TemplateEngineJsonP
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/json        =>  ninja.template.TemplateEngineJson
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - application/xml         =>  ninja.template.TemplateEngineXml
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/html               =>  ninja.template.TemplateEngineFreemarker
+21:16:47.387 [NinjaJetty] INFO  n.template.TemplateEngineManagerImpl - text/plain              =>  ninja.template.TemplateEngineText
+21:16:47.399 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - Registered request bodyparser engines
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - -------------------------------------------------------------------------------------
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/json                   =>  ninja.bodyparser.BodyParserEngineJson
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/x-www-form-urlencoded  =>  ninja.bodyparser.BodyParserEnginePost
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - application/xml                    =>  ninja.bodyparser.BodyParserEngineXml
+21:16:47.400 [NinjaJetty] INFO  n.b.BodyParserEngineManagerImpl - multipart/form-data                =>  ninja.bodyparser.BodyParserEngineMultipartPost
+21:16:47.400 [NinjaJetty] INFO  ninja.Bootstrap - Ninja injector started in 875 ms.
+21:16:47.449 [NinjaJetty] WARN  ninja.params.ControllerMethodInvoker - Using deprecated non-strict mode for injection of parameters into controller (ninja.strict_argument_extractors = false). This mode will soon be removed from Ninja. Make sure you upgrade your application as soon as possible. More: http://www.ninjaframework.org/documentation/basic_concepts/controllers.html 'A note about null and Optional'.
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - Registered routes
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - ----------------------------------------------------------------
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - GET  /queryBySubject/{topic}  =>  controllers.ApplicationController::queryBySubject
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - GET  /queryByItem/{id}        =>  controllers.ApplicationController::queryByItem
+21:16:47.457 [NinjaJetty] INFO  ninja.RouterImpl - POST /update/{id}/{type}      =>  controllers.ApplicationController::update
+21:16:47.460 [NinjaJetty] INFO  ninja.NinjaDefault - 
+ _______  .___ _______        ____.  _____   
+ \      \ |   |\      \      |    | /  _  \  
+ /   |   \|   |/   |   \     |    |/  /_\  \ 
+/    |    \   /    |    \/\__|    /    |    \  http://www.ninjaframework.org
+\____|__  /___\____|__  /\________\____|__  /  @ninjaframework
+     web\/framework   \/                  \/   6.5.0
+
+21:16:47.460 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Starting Ninja application...
+21:16:47.464 [NinjaJetty] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application started in 4ms
+21:16:47.469 [NinjaJetty] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@4de91056{/,null,AVAILABLE}
+21:16:47.502 [NinjaJetty] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2fb3536e{HTTP/1.1,[http/1.1]}{0.0.0.0:8081}
+21:16:47.505 [NinjaJetty] INFO  org.eclipse.jetty.server.Server - Started @1878ms
+21:16:47.505 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Started jetty v9.4.18.v20190429 on <all>:8081
+21:16:47.505 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+21:16:47.505 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - Ninja application running at
+21:16:47.506 [NinjaJetty] INFO  ninja.standalone.NinjaJetty -  => http://localhost:8081
+21:16:47.506 [NinjaJetty] INFO  ninja.standalone.NinjaJetty - -------------------------------------------------------
+21:17:15.466 [qtp1288235781-16] INFO  Pygmy - Current inventory in library: {1=Book{bookNumber=1, bookName='How to get a good grade in 677 in 20 minutes a day', topic='distributed systems', cost=25, count=3}, 2=Book{bookNumber=2, bookName='RPCs for Dummies', topic='distributed systems', cost=50, count=0}, 3=Book{bookNumber=3, bookName='Xen and the Art of Surviving Graduate School', topic='graduate school', cost=40, count=2}, 4=Book{bookNumber=4, bookName='Cooking for the Impatient Graduate Student', topic='graduate school', cost=60, count=5}}
+21:17:15.467 [qtp1288235781-16] INFO  Pygmy - Query by Item request received for item: 4
+21:17:15.467 [qtp1288235781-16] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:16.883 [qtp1288235781-19] INFO  Pygmy - Query by Subject request received for topic: distributed systems
+21:17:16.883 [qtp1288235781-19] INFO  Pygmy - Query by Subject response time in milliseconds : 0
+21:17:17.953 [qtp1288235781-20] INFO  Pygmy - Query by Item request received for item: 2
+21:17:17.953 [qtp1288235781-20] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:19.000 [qtp1288235781-13] INFO  Pygmy - Query by Item request received for item: 1
+21:17:19.000 [qtp1288235781-13] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:20.579 [qtp1288235781-15] INFO  Pygmy - Query by Item request received for item: 1
+21:17:20.579 [qtp1288235781-15] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:20.619 [qtp1288235781-18] INFO  Pygmy - Buy update request received for item: 1
+21:17:20.623 [qtp1288235781-18] INFO  Pygmy - Update response time in milliseconds : 4
+21:17:21.728 [qtp1288235781-16] INFO  Pygmy - Query by Subject request received for topic: graduate school
+21:17:21.728 [qtp1288235781-16] INFO  Pygmy - Query by Subject response time in milliseconds : 0
+21:17:22.813 [qtp1288235781-19] INFO  Pygmy - Query by Item request received for item: 1
+21:17:22.814 [qtp1288235781-19] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:22.823 [qtp1288235781-20] INFO  Pygmy - Buy update request received for item: 1
+21:17:22.824 [qtp1288235781-20] INFO  Pygmy - Update response time in milliseconds : 1
+21:17:23.886 [qtp1288235781-13] INFO  Pygmy - Query by Item request received for item: 3
+21:17:23.886 [qtp1288235781-13] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:23.894 [qtp1288235781-18] INFO  Pygmy - Buy update request received for item: 3
+21:17:23.896 [qtp1288235781-18] INFO  Pygmy - Update response time in milliseconds : 1
+21:17:24.953 [qtp1288235781-16] INFO  Pygmy - Query by Item request received for item: 3
+21:17:24.953 [qtp1288235781-16] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:24.968 [qtp1288235781-19] INFO  Pygmy - Buy update request received for item: 3
+21:17:24.969 [qtp1288235781-19] INFO  Pygmy - Update response time in milliseconds : 1
+21:17:26.015 [qtp1288235781-20] INFO  Pygmy - Query by Item request received for item: 2
+21:17:26.015 [qtp1288235781-20] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:27.062 [qtp1288235781-13] INFO  Pygmy - Query by Item request received for item: 3
+21:17:27.063 [qtp1288235781-13] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:28.118 [qtp1288235781-18] INFO  Pygmy - Query by Item request received for item: 2
+21:17:28.119 [qtp1288235781-18] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:28.129 [qtp1288235781-16] INFO  Pygmy - Restock update request received for item: 2
+21:17:28.129 [qtp1288235781-16] INFO  Pygmy - Restocking book - 2
+21:17:28.133 [qtp1288235781-16] INFO  Pygmy - Update response time in milliseconds : 3
+21:17:29.181 [qtp1288235781-19] INFO  Pygmy - Query by Subject request received for topic: distributed systems
+21:17:29.181 [qtp1288235781-19] INFO  Pygmy - Query by Subject response time in milliseconds : 0
+21:17:30.235 [qtp1288235781-20] INFO  Pygmy - Query by Subject request received for topic: graduate school
+21:17:30.236 [qtp1288235781-20] INFO  Pygmy - Query by Subject response time in milliseconds : 0
+21:17:31.282 [qtp1288235781-13] INFO  Pygmy - Query by Item request received for item: 3
+21:17:31.283 [qtp1288235781-13] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:32.332 [qtp1288235781-18] INFO  Pygmy - Query by Subject request received for topic: distributed systems
+21:17:32.333 [qtp1288235781-18] INFO  Pygmy - Query by Subject response time in milliseconds : 0
+21:17:33.394 [qtp1288235781-16] INFO  Pygmy - Query by Item request received for item: 1
+21:17:33.394 [qtp1288235781-16] INFO  Pygmy - Query by Item response time in milliseconds : 0
+21:17:33.406 [qtp1288235781-19] INFO  Pygmy - Buy update request received for item: 1
+21:17:33.407 [qtp1288235781-19] INFO  Pygmy - Update response time in milliseconds : 0
+21:17:34.242 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Stopping Ninja application...
+21:17:34.243 [Thread-8] INFO  ninja.lifecycle.LifecycleServiceImpl - Ninja application stopped in 1ms
+21:17:34.243 [Thread-8] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@4de91056{/,null,UNAVAILABLE}
+21:17:34.244 [Thread-8] INFO  ninja.standalone.NinjaJetty - Trying to stop jetty on <all>:8081
+21:17:34.260 [Thread-8] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2fb3536e{HTTP/1.1,[http/1.1]}{0.0.0.0:8081}
+21:17:34.263 [Thread-8] INFO  ninja.standalone.NinjaJetty - Stopped jetty on <all>:8081
