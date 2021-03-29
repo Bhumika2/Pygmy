@@ -17,6 +17,10 @@ public class Order {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
 
+    /**
+     * buyBook makes a http post request to order server to buy the book.
+     * It is invoked from application controller and returns message about the purchase status
+     */
     public OrderResponse buyBook(OrderRequest orderReq) {
         OrderResponse orderResponse = null;
         try {

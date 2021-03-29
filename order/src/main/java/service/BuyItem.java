@@ -16,6 +16,10 @@ import java.time.Duration;
 public class BuyItem {
     Logger logger = LoggerFactory.getLogger("Pygmy");
 
+    /**
+     * buy check the availability of book and initiates the buy operation
+     * returns the message of purchase status
+     */
     public BuyResponse buy(BuyRequest buyObj) {
         Integer bookNumber = buyObj.getBookNumber();
         Book book = checkBookAvailability(bookNumber);
@@ -36,6 +40,10 @@ public class BuyItem {
         return buyResponse;
     }
 
+    /**
+     * checkBookAvailability makes http request to catalog server to check the availability of book
+     * returns the response from catalog server
+     */
     public Book checkBookAvailability(Integer bookNumber) {
         logger.info("Checking availability of book: " + bookNumber);
         Book book = null;
@@ -59,6 +67,10 @@ public class BuyItem {
         return book;
     }
 
+    /**
+     * initiateBuy makes http request to catalog server to update the count of book purchased in the inventory
+     * returns true on successful buy
+     */
     public boolean initiateBuy(Integer bookNumber) {
         logger.info("Initiating buy request for book: " + bookNumber);
         boolean buyStatus = false;
@@ -85,6 +97,9 @@ public class BuyItem {
         return buyStatus;
     }
 
+    /**
+     * restockBook makes http request to catalog server to replenish the inventory
+     */
     public void restockBook(Integer bookNumber) {
         logger.info("Initiating restock request for book: " + bookNumber);
         try {

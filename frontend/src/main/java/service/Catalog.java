@@ -20,6 +20,10 @@ public class Catalog {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
 
+    /**
+     * searchTopic makes a http get request to catalog server to get the books information on given topic.
+     * It is invoked from application controller and returns book information response from catalog server
+     */
     public List<CatalogResponse> searchTopic(String topic) {
         List<CatalogResponse> catalogResponse = null;
         try {
@@ -49,6 +53,10 @@ public class Catalog {
         return catalogResponse;
     }
 
+    /**
+     * lookupBook makes a http get request to catalog server to get the book information.
+     * It is invoked from application controller and returns book information response from catalog server
+     */
     public CatalogResponse lookupBook(Integer bookNumber) {
         CatalogResponse catalogResponse = null;
         try {

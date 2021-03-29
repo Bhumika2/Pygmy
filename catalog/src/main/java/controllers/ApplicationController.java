@@ -121,7 +121,10 @@ public class ApplicationController {
         setDBConnection();
         getAllBooks();
     }
-
+    /**
+     * queryByItem serves the lookup http requests from frontend and order server
+     * returns book details corresponding to specified id
+     */
     public Result queryByItem(@PathParam("id") int id) {
         logger.info("Query by Item request received for item: " + id);
         long startTime = System.nanoTime();
@@ -131,6 +134,10 @@ public class ApplicationController {
         return Results.json().render(book);
     }
 
+    /**
+     * queryBySubject serves the search http requests from frontend server
+     * returns book details corresponding to specified topic
+     */
     public Result queryBySubject(@PathParam("topic") String topic) throws UnsupportedEncodingException {
         topic = URLDecoder.decode(topic, StandardCharsets.UTF_8.toString());
         logger.info("Query by Subject request received for topic: " + topic);
@@ -145,6 +152,10 @@ public class ApplicationController {
         return Results.json().render(booksByTopic);
     }
 
+    /**
+     * update serves the http requests from order server to decrement the count of books upon successful buy
+     * updates the book count in database table and in-memory hashmap
+     */
     public Result update(@PathParam("id") int id, @PathParam("type") String type) {
         logger.info(type + " update request received for item: " + id);
         long startTime = System.nanoTime();
@@ -174,6 +185,9 @@ public class ApplicationController {
         return Results.json().render(updateRes);
     }
 
+    /**
+     * getAllBooks fetches the book details from the database table and populates the hashmap
+     */
     public void getAllBooks() {
         try {
             Statement statement = connection.createStatement();
@@ -205,6 +219,9 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * updateDB updates the count of book in database table after successful buy
+     */
     public void updateDB(Integer bookNumber) {
         try {
             Statement statement = connection.createStatement();
@@ -215,6 +232,9 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * restockBook updates the count of book in database to replenish the stock
+     */
     public void restockBook(Integer bookNumber) {
         logger.info("Restocking book - " + bookNumber);
         try {
@@ -225,12 +245,16 @@ public class ApplicationController {
             logger.info(e.getMessage());
         }
     }
-
+    /**
+     * setDBConnection creates the database connection to books.db
+     */
     public void setDBConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
+            logger.info("first "+connection);
             if (connection == null) {
                 connection = DriverManager.getConnection("jdbc:sqlite:books.db");
+                logger.info("test"+connection);
             }
         } catch (Exception e) {
             logger.info(e.getMessage());
