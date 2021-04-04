@@ -6,6 +6,9 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Random;
+import java.util.Properties;
+import java.io.File;
+import java.io.FileReader;
 
 public class Client {
     private static final String[] ACTIONS = {"lookup", "search", "buy"};
@@ -13,6 +16,20 @@ public class Client {
 
     public static void main(String[] args) {
         try {
+            File configFile = new File("config.properties");
+            Properties prop = new Properties();
+            FileReader reader = new FileReader(configFile);
+
+            if (reader != null) {
+                prop.load(reader);
+            } else {
+                System.out.println("property file 'config.properties' not found in the classpath");
+                return;
+            }
+
+            String frontendHostName = prop.getProperty("frontendhostname");
+            String frontendPort = prop.getProperty("frontendport");
+
             while (true) {
                 String action = getRandomAction();
                 System.out.println("\n");
@@ -22,7 +39,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8080/lookup/" + id))
+                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/lookup/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -45,7 +62,7 @@ public class Client {
                         HttpClient client = HttpClient.newHttpClient();
                         String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8080/search/" + restUrl))
+                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/search/" + restUrl))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -67,7 +84,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://localhost:8080/buy/" + id))
+                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/buy/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .POST(HttpRequest.BodyPublishers.noBody())
