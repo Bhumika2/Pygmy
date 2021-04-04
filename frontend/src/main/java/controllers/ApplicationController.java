@@ -66,6 +66,10 @@ public class ApplicationController {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
 
+    /**
+     * search is the microservice endpoint that invokes searchTopic method in Catalog class under
+     * service package to handle the request. It is invoked from client and returns books corresponding to topic.
+     */
     public Result search(@PathParam("topic") String topic) {
         logger.info("Search request received for topic: " + topic);
         long startTime = System.nanoTime();
@@ -77,6 +81,10 @@ public class ApplicationController {
 
     }
 
+    /**
+     * lookup is the microservice endpoint that invokes lookupBook method in Catalog class under
+     * service package to handle the request. It is invoked from client and returns book corresponding to number.
+     */
     public Result lookup(@PathParam("bookNumber") Integer bookNumber) {
         logger.info("Lookup request received for item: " + bookNumber);
         long startTime = System.nanoTime();
@@ -87,6 +95,10 @@ public class ApplicationController {
         return Results.json().render(catalogResponse);
     }
 
+    /**
+     * buy is the microservice endpoint that invokes buyBook method in Catalog class under
+     * service package to handle the request. It is invoked from client and returns message about the purchase status.
+     */
     public Result buy(@PathParam("bookNumber") Integer bookNumber) {
         logger.info("Buy request received for item:" + bookNumber);
         long startTime = System.nanoTime();

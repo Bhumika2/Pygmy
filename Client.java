@@ -10,6 +10,11 @@ import java.util.Properties;
 import java.io.File;
 import java.io.FileReader;
 
+
+/**
+ * client makes http requests:lookup, search and buy at random with random parameters to frontend server
+ * prints the response from microservices
+ */
 public class Client {
     private static final String[] ACTIONS = {"lookup", "search", "buy"};
     private static final String[] TOPICS = {"distributed systems", "graduate school"};
