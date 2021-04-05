@@ -30,6 +30,7 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/queryBySubject/{topic}").with(ApplicationController::queryBySubject);
         router.GET().route("/queryByItem/{id}").with(ApplicationController::queryByItem);
         router.POST().route("/update/{id}/{type}").with(ApplicationController::update);
+        router.POST().route("/updateCost/{id}/{cost}").with(ApplicationController::updateCost);
     }
 
 }

@@ -186,6 +186,27 @@ public class ApplicationController {
     }
 
     /**
+     * updateCost serves the http requests to update the cost of books
+     * updates the book cost in database table and in-memory hashmap
+     */
+    public Result updateCost(@PathParam("id") int id, @PathParam("cost") int cost) {
+        logger.info("Update cost request received for item: " + id);
+        long startTime = System.nanoTime();
+
+        updateCostInDb(bookMap.get(id).getBookNumber(), cost);
+        bookMap.get(id).setCost(cost);
+
+        String message = "success";
+        UpdateResponse updateRes = new UpdateResponse();
+        updateRes.setBookNumber(id);
+        updateRes.setMessage(message);
+
+        long timeElapsed = System.nanoTime() - startTime;
+        logger.info("Update cost response time in milliseconds : " + timeElapsed / 1000000);
+        return Results.json().render(updateRes);
+    }
+
+    /**
      * getAllBooks fetches the book details from the database table and populates the hashmap
      */
     public void getAllBooks() {
@@ -245,6 +266,22 @@ public class ApplicationController {
             logger.info(e.getMessage());
         }
     }
+
+    /**
+     * updateCostInDb updates the cost of book in database
+     */
+    public void updateCostInDb(Integer bookNumber, Integer cost) {
+        logger.info("Updating cost in DB for book - " + bookNumber);
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);
+            statement.executeUpdate("update book set cost = " + cost + " where book_number = " + bookNumber);
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+    }
+
+
     /**
      * setDBConnection creates the database connection to books.db
      */
