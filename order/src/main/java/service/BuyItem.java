@@ -58,7 +58,7 @@ public class BuyItem {
         Book book = null;
         try {
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("catalogHost");
+            String serverName = ninjaProperties.get("catalogHost")+":"+ninjaProperties.get("catalogPort");
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
@@ -86,7 +86,7 @@ public class BuyItem {
         boolean buyStatus = false;
         try {
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("catalogHost");
+            String serverName = ninjaProperties.get("catalogHost")+":"+ninjaProperties.get("catalogPort");
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/update/" + bookNumber + "/Buy"))
                     .timeout(Duration.ofMinutes(1))
@@ -115,7 +115,7 @@ public class BuyItem {
         logger.info("Initiating restock request for book: " + bookNumber);
         try {
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("catalogHost");
+            String serverName = ninjaProperties.get("catalogHost")+":"+ninjaProperties.get("catalogPort");
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/update/" + bookNumber + "/Restock"))
                     .timeout(Duration.ofMinutes(1))

@@ -34,7 +34,7 @@ public class Order {
             ObjectMapper objectMapper = new ObjectMapper();
             String orderReqStr = objectMapper.writeValueAsString(orderReq);
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("orderHost");
+            String serverName = ninjaProperties.get("orderHost")+":"+ninjaProperties.get("orderPort");
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/buy"))

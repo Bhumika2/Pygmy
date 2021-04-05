@@ -27,7 +27,7 @@ then
 	cd catalog
 	> logs/catalog.log
 	mvn clean install > logs/catalog.log
-	nohup mvn ninja:run -Dninja.port=8081 -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/catalog.log &
+	nohup mvn ninja:run -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/catalog.log &
 	cd ../
 fi
 
@@ -40,7 +40,7 @@ then
 	cd order
 	> logs/order.log
 	mvn clean install > logs/order.log
-	nohup mvn ninja:run -Dninja.port=8082 -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/order.log &
+	nohup mvn ninja:run -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/order.log &
 	cd ../
 fi
 
@@ -53,7 +53,7 @@ then
 	cd frontend
 	> logs/frontend.log
 	mvn clean install > logs/frontend.log
-	nohup mvn ninja:run -Dninja.port=8080 -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/frontend.log &
+	nohup mvn ninja:run -Dninja.jvmArgs="-Dninja.external.configuration=conf/hostname.conf" > logs/frontend.log &
 	cd ../
 fi
 

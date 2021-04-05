@@ -36,7 +36,7 @@ public class Catalog {
             logger.info("Calling Catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("catalogHost");
+            String serverName = ninjaProperties.get("catalogHost")+":"+ninjaProperties.get("catalogPort");
             String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/queryBySubject/" + restUrl))
@@ -71,7 +71,7 @@ public class Catalog {
             ObjectMapper objectMapper = new ObjectMapper();
             //String catalogReqStr = objectMapper.writeValueAsString(catalogRequest);
             HttpClient client = HttpClient.newHttpClient();
-            String serverName = ninjaProperties.get("catalogHost");
+            String serverName = ninjaProperties.get("catalogHost")+":"+ninjaProperties.get("catalogPort");
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("http://"+serverName+"/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
