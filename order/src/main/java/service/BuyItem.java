@@ -1,11 +1,15 @@
 package service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.google.inject.Inject;
 import models.Book;
 import models.BuyRequest;
 import models.BuyResponse;
+import ninja.utils.NinjaProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,6 +24,9 @@ public class BuyItem {
      * buy check the availability of book and initiates the buy operation
      * returns the message of purchase status
      */
+    public BuyItem(NinjaProperties ninjaProperties){
+        this.ninjaProperties = ninjaProperties;
+    }
     public BuyResponse buy(BuyRequest buyObj) {
         Integer bookNumber = buyObj.getBookNumber();
         Book book = checkBookAvailability(bookNumber);
@@ -44,13 +51,16 @@ public class BuyItem {
      * checkBookAvailability makes http request to catalog server to check the availability of book
      * returns the response from catalog server
      */
+    @Inject
+    NinjaProperties ninjaProperties;
     public Book checkBookAvailability(Integer bookNumber) {
         logger.info("Checking availability of book: " + bookNumber);
         Book book = null;
         try {
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/queryByItem/" + bookNumber))
+                    .uri(URI.create("http://"+serverName+":8081/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
@@ -76,8 +86,9 @@ public class BuyItem {
         boolean buyStatus = false;
         try {
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/Buy"))
+                    .uri(URI.create("http://"+serverName+":8081/update/" + bookNumber + "/Buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
@@ -104,8 +115,9 @@ public class BuyItem {
         logger.info("Initiating restock request for book: " + bookNumber);
         try {
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/update/" + bookNumber + "/Restock"))
+                    .uri(URI.create("http://"+serverName+":8081/update/" + bookNumber + "/Restock"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())

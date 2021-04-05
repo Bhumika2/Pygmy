@@ -57,23 +57,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import service.Catalog;
 import service.Order;
+import com.google.inject.Inject;
+import ninja.utils.NinjaProperties;
 
 import java.util.List;
-
 
 @Singleton
 public class ApplicationController {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
-
     /**
      * search is the microservice endpoint that invokes searchTopic method in Catalog class under
      * service package to handle the request. It is invoked from client and returns books corresponding to topic.
      */
+    @Inject
+    NinjaProperties ninjaProperties;
+
     public Result search(@PathParam("topic") String topic) {
         logger.info("Search request received for topic: " + topic);
         long startTime = System.nanoTime();
-        Catalog catalog = new Catalog();
+        Catalog catalog = new Catalog(ninjaProperties);
         List<CatalogResponse> catalogResponse = catalog.searchTopic(topic);
         long timeElapsed = System.nanoTime() - startTime;
         logger.info("Search response time in milliseconds : " + timeElapsed / 1000000);
@@ -88,7 +91,7 @@ public class ApplicationController {
     public Result lookup(@PathParam("bookNumber") Integer bookNumber) {
         logger.info("Lookup request received for item: " + bookNumber);
         long startTime = System.nanoTime();
-        Catalog catalog = new Catalog();
+        Catalog catalog = new Catalog(ninjaProperties);
         CatalogResponse catalogResponse = catalog.lookupBook(bookNumber);
         long timeElapsed = System.nanoTime() - startTime;
         logger.info("Lookup response time in milliseconds : " + timeElapsed / 1000000);
@@ -102,7 +105,7 @@ public class ApplicationController {
     public Result buy(@PathParam("bookNumber") Integer bookNumber) {
         logger.info("Buy request received for item:" + bookNumber);
         long startTime = System.nanoTime();
-        Order order = new Order();
+        Order order = new Order(ninjaProperties);
         OrderRequest orderRequest = new OrderRequest(bookNumber);
         OrderResponse orderResponse = order.buyBook(orderRequest);
         long timeElapsed = System.nanoTime() - startTime;

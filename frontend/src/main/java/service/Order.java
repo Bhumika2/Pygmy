@@ -12,15 +12,21 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import com.google.inject.Inject;
+import ninja.utils.NinjaProperties;
 
 public class Order {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
-
+    public Order(NinjaProperties ninjaProperties){
+        this.ninjaProperties = ninjaProperties;
+    }
     /**
      * buyBook makes a http post request to order server to buy the book.
      * It is invoked from application controller and returns message about the purchase status
      */
+    @Inject
+    NinjaProperties ninjaProperties;
     public OrderResponse buyBook(OrderRequest orderReq) {
         OrderResponse orderResponse = null;
         try {
@@ -28,8 +34,10 @@ public class Order {
             ObjectMapper objectMapper = new ObjectMapper();
             String orderReqStr = objectMapper.writeValueAsString(orderReq);
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("orderHost");
+
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8082/buy"))
+                    .uri(URI.create("http://"+serverName+":8082/buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(orderReqStr))

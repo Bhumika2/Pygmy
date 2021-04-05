@@ -15,24 +15,31 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.List;
+import com.google.inject.Inject;
+import ninja.utils.NinjaProperties;
 
 public class Catalog {
 
     Logger logger = LoggerFactory.getLogger("Pygmy");
-
+    public Catalog(NinjaProperties ninjaProperties){
+        this.ninjaProperties = ninjaProperties;
+    }
     /**
      * searchTopic makes a http get request to catalog server to get the books information on given topic.
      * It is invoked from application controller and returns book information response from catalog server
      */
+    @Inject
+    NinjaProperties ninjaProperties;
     public List<CatalogResponse> searchTopic(String topic) {
         List<CatalogResponse> catalogResponse = null;
         try {
             logger.info("Calling Catalog microservice");
             ObjectMapper objectMapper = new ObjectMapper();
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("catalogHost");
             String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/queryBySubject/" + restUrl))
+                    .uri(URI.create("http://"+serverName+":8081/queryBySubject/" + restUrl))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
@@ -64,8 +71,9 @@ public class Catalog {
             ObjectMapper objectMapper = new ObjectMapper();
             //String catalogReqStr = objectMapper.writeValueAsString(catalogRequest);
             HttpClient client = HttpClient.newHttpClient();
+            String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8081/queryByItem/" + bookNumber))
+                    .uri(URI.create("http://"+serverName+":8081/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()

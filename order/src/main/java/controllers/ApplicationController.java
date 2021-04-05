@@ -46,11 +46,13 @@
 
 package controllers;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import models.BuyRequest;
 import models.BuyResponse;
 import ninja.Result;
 import ninja.Results;
+import ninja.utils.NinjaProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import service.BuyItem;
@@ -64,10 +66,12 @@ public class ApplicationController {
      * buy serves the buy http requests from frontend server. It invokes the buy method from BuyItem class under service package
      * returns the message of purchase status
      */
+    @Inject
+    NinjaProperties ninjaProperties;
     public Result buy(BuyRequest buyObj) {
         logger.info("Buy request received for book: " + buyObj.getBookNumber());
         long startTime = System.nanoTime();
-        BuyItem buyItem = new BuyItem();
+        BuyItem buyItem = new BuyItem(ninjaProperties);
         BuyResponse buyResponse = buyItem.buy(buyObj);
         long timeElapsed = System.nanoTime() - startTime;
         logger.info("Buy response time in milliseconds : " + timeElapsed / 1000000);
