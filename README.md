@@ -16,17 +16,23 @@ Second parameter is number of clients (optional): Default value is 3, this param
 
 To deploy the code: 
 
-CASE 1 - Single server, single buyer
-sh run.sh all 1
+1. CASE 1 - Single server, single buyer
+    
+    sh run.sh all 1
 
-CASE 2 - Single server, N buyers
-sh run.sh all 3
-. 
-CASE 3 - One server per microservice and N client nodes [AWS]
-sh run.sh catalog [SERVER 1]
-sh run.sh order [SERVER 2]
-sh run.sh frontend [SERVER 3]
-sh run.sh client 3 [SERVER 4]
+2. CASE 2 - Single server, N buyers
+
+    sh run.sh all 3
+
+3. CASE 3 - One server per microservice and N client nodes [AWS]
+    
+    sh run.sh catalog [SERVER 1]
+   
+    sh run.sh order [SERVER 2]
+   
+    sh run.sh frontend [SERVER 3]
+   
+    sh run.sh client 3 [SERVER 4]
 
 
 AWS - EC2 instances
