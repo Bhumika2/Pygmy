@@ -37,7 +37,7 @@ public class Order {
             String serverName = ninjaProperties.get("orderHost");
 
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://"+serverName+":8082/buy"))
+                    .uri(URI.create("http://"+serverName+"/buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(orderReqStr))

@@ -60,7 +60,7 @@ public class BuyItem {
             HttpClient client = HttpClient.newHttpClient();
             String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://"+serverName+":8081/queryByItem/" + bookNumber))
+                    .uri(URI.create("http://"+serverName+"/queryByItem/" + bookNumber))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .GET()
@@ -88,7 +88,7 @@ public class BuyItem {
             HttpClient client = HttpClient.newHttpClient();
             String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://"+serverName+":8081/update/" + bookNumber + "/Buy"))
+                    .uri(URI.create("http://"+serverName+"/update/" + bookNumber + "/Buy"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
@@ -117,7 +117,7 @@ public class BuyItem {
             HttpClient client = HttpClient.newHttpClient();
             String serverName = ninjaProperties.get("catalogHost");
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://"+serverName+":8081/update/" + bookNumber + "/Restock"))
+                    .uri(URI.create("http://"+serverName+"/update/" + bookNumber + "/Restock"))
                     .timeout(Duration.ofMinutes(1))
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.noBody())
