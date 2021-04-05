@@ -21,7 +21,7 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            File configFile = new File("config.properties");
+            File configFile = new File("hostname.conf");
             Properties prop = new Properties();
             FileReader reader = new FileReader(configFile);
 
@@ -32,8 +32,7 @@ public class Client {
                 return;
             }
 
-            String frontendHostName = prop.getProperty("frontendhostname");
-            String frontendPort = prop.getProperty("frontendport");
+            String frontendHostName = prop.getProperty("frontendHost");
 
             while (true) {
                 String action = getRandomAction();
@@ -44,7 +43,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/lookup/" + id))
+                                .uri(URI.create("http://" + frontendHostName + ":8080/lookup/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -67,7 +66,7 @@ public class Client {
                         HttpClient client = HttpClient.newHttpClient();
                         String restUrl = URLEncoder.encode(topic, StandardCharsets.UTF_8.toString());
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/search/" + restUrl))
+                                .uri(URI.create("http://" + frontendHostName + ":8080/search/" + restUrl))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .GET()
@@ -89,7 +88,7 @@ public class Client {
                     try {
                         HttpClient client = HttpClient.newHttpClient();
                         HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create("http://" + frontendHostName + ":" + frontendPort + "/buy/" + id))
+                                .uri(URI.create("http://" + frontendHostName + ":8080/buy/" + id))
                                 .timeout(Duration.ofMinutes(1))
                                 .header("Content-Type", "application/json")
                                 .POST(HttpRequest.BodyPublishers.noBody())

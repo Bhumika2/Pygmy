@@ -9,9 +9,20 @@ fi
 mode=$1
 if [ $mode = "all" ]
 then 
-	echo "Mode = all, Running all microservices - catalog, order and frontend and starting up clients (default 3)"
-else 
+	echo "Mode = all, will start up all microservices - catalog, order and frontend and clients (default 3)"
+elif [ $mode = "catalog" ] || [ $mode = "order" ] || [ $mode = "frontend" ]
+then
 	echo "Mode = $mode, Starting up with only the desired server/client"
+else
+	echo "Incorrect mode selected"
+	exit
+fi
+
+re='^[0-9]+$'
+if ! [ -z $2 ] && ! [[ $2 =~ $re ]] 
+then
+   echo "Incorrect number of clients"
+   exit 1
 fi
 
 
