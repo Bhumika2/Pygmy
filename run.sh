@@ -10,7 +10,7 @@ mode=$1
 if [ $mode = "all" ]
 then 
 	echo "Mode = all, will start up all microservices - catalog, order and frontend and clients (default 3)"
-elif [ $mode = "catalog" ] || [ $mode = "order" ] || [ $mode = "frontend" ]
+elif [ $mode = "catalog" ] || [ $mode = "order" ] || [ $mode = "frontend" ] || [ $mode = "client" ]
 then
 	echo "Mode = $mode, Starting up with only the desired server/client"
 else
@@ -79,18 +79,20 @@ then
 	echo "Starting up $N client(s)"
 	clientUp="true"
 
+	cd client
 	javac Client.java
 
 	for ((i=1; i<= $N; i++))
 	do
-	  >client_$i.log
-	  java Client > client_$i.log &
+	  > logs/client_$i.log
+	  java Client > logs/client_$i.log &
 	  echo "Client $i started"
 	done
+	cd ../
 fi
 
-echo "Process will run for 20 seconds - value can be changed in run.sh file"
-sleep 20
+echo "Process will run for 120 seconds - value can be changed in run.sh file"
+sleep 120
 
 if [ $clientUp = "true" ]
 then

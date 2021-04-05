@@ -5,7 +5,7 @@ Pygmy.com - the World’s smallest book store is two-tier web application using 
 Please note:
 1. JDK and Maven is required on the host machine to run the run.sh script.
 2. Logs for all test cases can be seen in the logs folder. Each microservice/client will have its own log file.
-3. run.sh will start  microservices/cliens which will fire requests randomly for different items. This will happen for 60 seconds and then the script will kill all processes. To run the client for a longer duration, please change the value in run.sh file.
+3. run.sh will start  microservices/cliens which will fire requests randomly for different items. This will happen for 120 seconds and then the script will kill all processes. To run the client for a longer duration, please change the value in run.sh file.
 
 run.sh will take 2 parameters.
 
@@ -38,7 +38,7 @@ To deploy the code:
 AWS - EC2 instances
 We have considered Linux AMI.
 
-1. After cloning the code, open the properties.conf file in root directory of project and set the hostname as PublicDNSName of EC2 instances for all three microservices.
+1. After cloning the code, open the hostname.conf file in root directory of project and set the hostname as PublicDNSName of EC2 instances for all three microservices.
 2. Create a tar file of the complete source - 
    
     tar czf Pygmy.tar.gz Pygmy
@@ -59,12 +59,20 @@ Now for each sever, follow the steps to setup code on AWS and deploy it. (Replac
 
 4. Install JDK (if not already present)
 
-    sudo yum install java-devel
+    sudo yum install java-11-openjdk-devel (IMPORTANT: code must be compiled and run on java 11)
+
+    To check the java and compiler version use below command and change the version if required to java 11:
+
+    sudo alternatives --config java
+
+    sudo alternatives --config javac
 
 5. Install maven and set the location in path (if not already present)
 
     sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
     sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+
     sudo yum install -y apache-maven
 
 6. Extract the contents of tar file and change directory
@@ -75,4 +83,4 @@ Now for each sever, follow the steps to setup code on AWS and deploy it. (Replac
 
 8. Run run.sh with appropriate parameters as stated above
 
-9. Check logs in the microservice/logs folder for server logs and in Client_*.log for client logs.
+9. Check logs in the (microservice)/logs folder for server logs and in client/logs for client logs.

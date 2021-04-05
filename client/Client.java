@@ -21,7 +21,7 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            File configFile = new File("hostname.conf");
+            File configFile = new File("../hostname.conf");
             Properties prop = new Properties();
             FileReader reader = new FileReader(configFile);
 
