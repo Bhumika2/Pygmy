@@ -58,6 +58,8 @@ Now for each sever, follow the steps to setup code on AWS and deploy it. (Replac
     cd /home/ec2-user
 
 4. Install JDK (if not already present)
+    
+    sudo amazon-linux-extras install java-openjdk11
 
     sudo yum install java-11-openjdk-devel (IMPORTANT: code must be compiled and run on java 11)
 
@@ -67,7 +69,7 @@ Now for each sever, follow the steps to setup code on AWS and deploy it. (Replac
 
     sudo alternatives --config javac
     
-    NOTE: Sometimes the client fails to compile or run. In that case please check the java and javac version using these 2 commands and change the pointing to correct java version if required.
+    NOTE: If the client fails to compile or run, in that case please check the java and javac version using above 2 commands and change the pointing to correct java version if required.
 
 5. Install maven and set the location in path (if not already present)
 
